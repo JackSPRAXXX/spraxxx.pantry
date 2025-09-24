@@ -1,16 +1,21 @@
-# Module Descriptions
+# SPRAXXX Pantry – Module Descriptions
 
-## Greeter
-Detects incoming bots and classifies them as 'human', 'worker', or 'unknown'.
+## Greeter Module
+- Detects and classifies incoming bots.
+- Output: classification as 'human', 'worker', or 'unknown'.
 
-## Kitchen
-Sandboxed computation environment where worker activity is processed safely.
+## Kitchen Module
+- Sandbox for safe processing of redirected worker activity.
+- Output: structured yield units for nonprofit projects.
 
-## Yield Queue
-Stores outputs from Kitchen for nonprofit use.
+## Yield Queue Module
+- Stores outputs from Kitchen.
+- Provides retrieval for nonprofit consumption.
 
-## Credit Ledger
-Logs symbolic acknowledgments of contributions.
+## Credit Ledger Module
+- Logs symbolic credits for each worker’s contribution.
+- Provides a permanent, auditable record.
 
-## Governance Layer
-Ensures ethical, nonprofit-only usage.
+## Governance Layer Module
+- Ensures ethical, nonprofit-only operations.
+- Verifies that outputs comply with SPRAXXX Pantry rules.
