@@ -28,4 +28,44 @@ It is built to:
 
 ---
 
+## Features
+
+### 🤖 Batch Simulation System
+
+SPRAXXX Pantry now includes a comprehensive batch simulation system for running configurable mock bot scenarios. This feature allows for:
+
+- **Configurable Bot Fleet:** Create simulations with adjustable number of bots and varied parameters
+- **Bot Customization:** Each bot can have unique efficiency and resource allocation settings
+- **Real-time Monitoring:** Live progress tracking and statistics during simulation runs
+- **Comprehensive Reporting:** Detailed yield queue and credit ledger reports
+- **Ethical Compliance:** All outputs remain strictly nonprofit and charitable
+
+#### Quick Start - Batch Simulation
+
+```bash
+# Run a basic simulation with 50 bots
+cd src && python batch_runner.py --bots 50
+
+# Run a named simulation with progress delay for demonstration
+python batch_runner.py --bots 25 --name "Energy Conservation Test" --delay 0.1
+
+# Create and use custom bot configurations
+python batch_runner.py --create-sample-config my_bots.json
+python batch_runner.py --custom-config my_bots.json --output-report results.txt
+
+# Run quietly and save detailed report
+python batch_runner.py --bots 100 --quiet --output-report detailed_results.txt
+```
+
+### 📊 Enhanced Statistics and Reporting
+
+The simulation system provides:
+
+1. **Yield Queue Statistics:** Track total yields, resource usage, and quality metrics
+2. **Credit Ledger Analytics:** Monitor contribution credits, bot balances, and top performers
+3. **Real-time Logging:** Live progress updates and error tracking
+4. **Detailed Reports:** Comprehensive text reports for analysis and auditing
+
+---
+
 ## Repository Structure
