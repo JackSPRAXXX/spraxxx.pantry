@@ -1,0 +1,48 @@
+# SPRAXXX Pantry - Charitable Computing Only
+# No commercial build artifacts or dependencies allowed
+
+# Temporary files
+/tmp/
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Build artifacts (when charitable systems are built)
+/build/
+/dist/
+/out/
+*.exe
+*.bin
+
+# Dependencies (to be managed ethically)
+/node_modules/
+/vendor/
+/.venv/
+/__pycache__/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs (except ethical audit logs which should be preserved)
+*.log
+/logs/
+
+# Configuration files with sensitive data
+.env
+.env.local
+config.json
+secrets.json
+
+# System files
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Ethical Note: This .gitignore protects charitable resources
+# All build processes must serve nonprofit purposes only
+# Commercial use of any ignored files violates charitable license
