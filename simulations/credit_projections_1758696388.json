@@ -1,0 +1,563 @@
+{
+  "individual_projections": {
+    "Conservative Growth": {
+      "scenario_name": "Conservative Growth",
+      "time_period_days": 30,
+      "total_credits_awarded": {
+        "computational": 166.88,
+        "charitable": 183.32,
+        "efficiency": 132.84800000000004,
+        "transparency": 108.24000000000001,
+        "community": 83.32
+      },
+      "credits_per_day": {
+        "computational": 5.562666666666667,
+        "charitable": 6.110666666666666,
+        "efficiency": 4.428266666666668,
+        "transparency": 3.608,
+        "community": 2.777333333333333
+      },
+      "top_contributors": [
+        {
+          "contributor_id": "community_supporter",
+          "total_credits": 206.33599999999996,
+          "credit_breakdown": {
+            "computational": 64.47999999999996,
+            "charitable": 48.360000000000014,
+            "efficiency": 45.136000000000024,
+            "transparency": 32.23999999999998,
+            "community": 16.11999999999999
+          }
+        },
+        {
+          "contributor_id": "education_helper",
+          "total_credits": 128.83200000000002,
+          "credit_breakdown": {
+            "computational": 42.24,
+            "charitable": 21.12,
+            "efficiency": 33.79200000000002,
+            "transparency": 21.12,
+            "community": 10.56
+          }
+        },
+        {
+          "contributor_id": "charitable_analyzer",
+          "total_credits": 110.97600000000004,
+          "credit_breakdown": {
+            "computational": 32.640000000000015,
+            "charitable": 24.480000000000004,
+            "efficiency": 29.376000000000012,
+            "transparency": 16.320000000000007,
+            "community": 8.160000000000004
+          }
+        },
+        {
+          "contributor_id": "research_bot",
+          "total_credits": 49.599999999999994,
+          "credit_breakdown": {
+            "computational": 15.999999999999998,
+            "charitable": 7.999999999999999,
+            "efficiency": 13.599999999999998,
+            "transparency": 7.999999999999999,
+            "community": 3.9999999999999996
+          }
+        },
+        {
+          "contributor_id": "local_food_bank",
+          "total_credits": 40.31999999999999,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 23.519999999999996,
+            "efficiency": 0.0,
+            "transparency": 5.6,
+            "community": 11.2
+          }
+        },
+        {
+          "contributor_id": "environmental_org",
+          "total_credits": 38.64,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 21.840000000000003,
+            "efficiency": 0.0,
+            "transparency": 5.6,
+            "community": 11.2
+          }
+        },
+        {
+          "contributor_id": "efficiency_optimizer",
+          "total_credits": 36.864,
+          "credit_breakdown": {
+            "computational": 11.52,
+            "charitable": 5.76,
+            "efficiency": 10.944,
+            "transparency": 5.76,
+            "community": 2.88
+          }
+        },
+        {
+          "contributor_id": "healthcare_charity",
+          "total_credits": 36.0,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 21.6,
+            "efficiency": 0.0,
+            "transparency": 4.8,
+            "community": 9.6
+          }
+        },
+        {
+          "contributor_id": "education_nonprofit",
+          "total_credits": 15.840000000000002,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 8.64,
+            "efficiency": 0.0,
+            "transparency": 2.4000000000000004,
+            "community": 4.800000000000001
+          }
+        },
+        {
+          "contributor_id": "system",
+          "total_credits": 11.200000000000001,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 0.0,
+            "efficiency": 0.0,
+            "transparency": 6.4,
+            "community": 4.800000000000001
+          }
+        }
+      ],
+      "distribution_metrics": {
+        "diversity_index": 0.7851840537870874,
+        "stability_score": 0.6647089980995057,
+        "growth_rate": -0.04438775510204086
+      },
+      "community_health_score": 70.4392059989538
+    },
+    "Moderate Expansion": {
+      "scenario_name": "Moderate Expansion",
+      "time_period_days": 90,
+      "total_credits_awarded": {
+        "computational": 1594.1999999999994,
+        "charitable": 1554.3999999999994,
+        "efficiency": 1314.1,
+        "transparency": 962.0999999999997,
+        "community": 689.5500000000002
+      },
+      "credits_per_day": {
+        "computational": 17.713333333333328,
+        "charitable": 17.271111111111104,
+        "efficiency": 14.601111111111111,
+        "transparency": 10.689999999999996,
+        "community": 7.661666666666669
+      },
+      "top_contributors": [
+        {
+          "contributor_id": "charitable_analyzer",
+          "total_credits": 1387.2,
+          "credit_breakdown": {
+            "computational": 407.999999999999,
+            "charitable": 306.00000000000097,
+            "efficiency": 367.20000000000095,
+            "transparency": 203.9999999999995,
+            "community": 101.99999999999974
+          }
+        },
+        {
+          "contributor_id": "community_supporter",
+          "total_credits": 1264.6399999999999,
+          "credit_breakdown": {
+            "computational": 395.20000000000084,
+            "charitable": 296.3999999999992,
+            "efficiency": 276.63999999999925,
+            "transparency": 197.60000000000042,
+            "community": 98.80000000000021
+          }
+        },
+        {
+          "contributor_id": "education_helper",
+          "total_credits": 1093.729999999997,
+          "credit_breakdown": {
+            "computational": 358.59999999999894,
+            "charitable": 179.29999999999947,
+            "efficiency": 286.87999999999937,
+            "transparency": 179.29999999999947,
+            "community": 89.64999999999974
+          }
+        },
+        {
+          "contributor_id": "research_bot",
+          "total_credits": 849.3999999999994,
+          "credit_breakdown": {
+            "computational": 274.0,
+            "charitable": 137.0,
+            "efficiency": 232.89999999999944,
+            "transparency": 137.0,
+            "community": 68.5
+          }
+        },
+        {
+          "contributor_id": "efficiency_optimizer",
+          "total_credits": 506.88,
+          "credit_breakdown": {
+            "computational": 158.40000000000003,
+            "charitable": 79.20000000000002,
+            "efficiency": 150.4799999999999,
+            "transparency": 79.20000000000002,
+            "community": 39.60000000000001
+          }
+        },
+        {
+          "contributor_id": "healthcare_charity",
+          "total_credits": 292.5,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 175.5,
+            "efficiency": 0.0,
+            "transparency": 39.0,
+            "community": 78.0
+          }
+        },
+        {
+          "contributor_id": "local_food_bank",
+          "total_credits": 273.59999999999997,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 159.59999999999997,
+            "efficiency": 0.0,
+            "transparency": 38.0,
+            "community": 76.0
+          }
+        },
+        {
+          "contributor_id": "environmental_org",
+          "total_credits": 207.00000000000006,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 117.00000000000006,
+            "efficiency": 0.0,
+            "transparency": 30.0,
+            "community": 60.0
+          }
+        },
+        {
+          "contributor_id": "education_nonprofit",
+          "total_credits": 191.39999999999995,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 104.39999999999995,
+            "efficiency": 0.0,
+            "transparency": 29.0,
+            "community": 58.0
+          }
+        },
+        {
+          "contributor_id": "system",
+          "total_credits": 48.0,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 0.0,
+            "efficiency": 0.0,
+            "transparency": 29.0,
+            "community": 19.0
+          }
+        }
+      ],
+      "distribution_metrics": {
+        "diversity_index": 0.783722141324795,
+        "stability_score": 0.6432546248912806,
+        "growth_rate": -0.020509251015750248
+      },
+      "community_health_score": 77.85285971693888
+    },
+    "Rapid Growth": {
+      "scenario_name": "Rapid Growth",
+      "time_period_days": 180,
+      "total_credits_awarded": {
+        "computational": 8324.16,
+        "charitable": 8157.564999999998,
+        "efficiency": 6820.033999999996,
+        "transparency": 4971.980000000001,
+        "community": 3550.04
+      },
+      "credits_per_day": {
+        "computational": 46.245333333333335,
+        "charitable": 45.31980555555554,
+        "efficiency": 37.88907777777776,
+        "transparency": 27.622111111111117,
+        "community": 19.722444444444445
+      },
+      "top_contributors": [
+        {
+          "contributor_id": "community_supporter",
+          "total_credits": 7906.496000000092,
+          "credit_breakdown": {
+            "computational": 2470.780000000045,
+            "charitable": 1853.0850000000225,
+            "efficiency": 1729.5459999999903,
+            "transparency": 1235.3900000000226,
+            "community": 617.6950000000113
+          }
+        },
+        {
+          "contributor_id": "charitable_analyzer",
+          "total_credits": 7064.92799999992,
+          "credit_breakdown": {
+            "computational": 2077.9199999999646,
+            "charitable": 1558.439999999986,
+            "efficiency": 1870.1279999999958,
+            "transparency": 1038.9599999999823,
+            "community": 519.4799999999912
+          }
+        },
+        {
+          "contributor_id": "education_helper",
+          "total_credits": 4911.048999999968,
+          "credit_breakdown": {
+            "computational": 1610.1799999999837,
+            "charitable": 805.0899999999918,
+            "efficiency": 1288.1440000000052,
+            "transparency": 805.0899999999918,
+            "community": 402.5449999999959
+          }
+        },
+        {
+          "contributor_id": "research_bot",
+          "total_credits": 3868.8000000000034,
+          "credit_breakdown": {
+            "computational": 1247.9999999999984,
+            "charitable": 623.9999999999992,
+            "efficiency": 1060.800000000007,
+            "transparency": 623.9999999999992,
+            "community": 311.9999999999996
+          }
+        },
+        {
+          "contributor_id": "efficiency_optimizer",
+          "total_credits": 2935.296000000002,
+          "credit_breakdown": {
+            "computational": 917.2800000000032,
+            "charitable": 458.6400000000016,
+            "efficiency": 871.4159999999952,
+            "transparency": 458.6400000000016,
+            "community": 229.3200000000008
+          }
+        },
+        {
+          "contributor_id": "healthcare_charity",
+          "total_credits": 1550.250000000004,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 930.1500000000025,
+            "efficiency": 0.0,
+            "transparency": 206.7000000000005,
+            "community": 413.400000000001
+          }
+        },
+        {
+          "contributor_id": "local_food_bank",
+          "total_credits": 1347.840000000002,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 786.240000000001,
+            "efficiency": 0.0,
+            "transparency": 187.20000000000033,
+            "community": 374.40000000000066
+          }
+        },
+        {
+          "contributor_id": "environmental_org",
+          "total_credits": 1184.0400000000016,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 669.240000000001,
+            "efficiency": 0.0,
+            "transparency": 171.6000000000002,
+            "community": 343.2000000000004
+          }
+        },
+        {
+          "contributor_id": "education_nonprofit",
+          "total_credits": 866.5800000000002,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 472.6800000000006,
+            "efficiency": 0.0,
+            "transparency": 131.29999999999984,
+            "community": 262.5999999999997
+          }
+        },
+        {
+          "contributor_id": "system",
+          "total_credits": 188.5,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 0.0,
+            "efficiency": 0.0,
+            "transparency": 113.10000000000002,
+            "community": 75.39999999999998
+          }
+        }
+      ],
+      "distribution_metrics": {
+        "diversity_index": 0.7830924629458692,
+        "stability_score": 0.6975346545997922,
+        "growth_rate": -0.036669147581268664
+      },
+      "community_health_score": 78.95757517998108
+    },
+    "Sustained Operation": {
+      "scenario_name": "Sustained Operation",
+      "time_period_days": 365,
+      "total_credits_awarded": {
+        "computational": 11330.219999999992,
+        "charitable": 10909.414999999999,
+        "efficiency": 9264.552,
+        "transparency": 6701.309999999997,
+        "community": 4723.455000000004
+      },
+      "credits_per_day": {
+        "computational": 31.041698630136963,
+        "charitable": 29.88880821917808,
+        "efficiency": 25.38233424657534,
+        "transparency": 18.359753424657526,
+        "community": 12.940972602739736
+      },
+      "top_contributors": [
+        {
+          "contributor_id": "community_supporter",
+          "total_credits": 11137.983999999993,
+          "credit_breakdown": {
+            "computational": 3480.620000000032,
+            "charitable": 2610.4649999999806,
+            "efficiency": 2436.4339999999565,
+            "transparency": 1740.310000000016,
+            "community": 870.155000000008
+          }
+        },
+        {
+          "contributor_id": "charitable_analyzer",
+          "total_credits": 9442.752000000035,
+          "credit_breakdown": {
+            "computational": 2777.279999999999,
+            "charitable": 2082.960000000016,
+            "efficiency": 2499.5520000000215,
+            "transparency": 1388.6399999999994,
+            "community": 694.3199999999997
+          }
+        },
+        {
+          "contributor_id": "education_helper",
+          "total_credits": 6687.186000000039,
+          "credit_breakdown": {
+            "computational": 2192.5200000000273,
+            "charitable": 1096.2600000000136,
+            "efficiency": 1754.0159999999778,
+            "transparency": 1096.2600000000136,
+            "community": 548.1300000000068
+          }
+        },
+        {
+          "contributor_id": "research_bot",
+          "total_credits": 4999.060000000029,
+          "credit_breakdown": {
+            "computational": 1612.6000000000208,
+            "charitable": 806.3000000000104,
+            "efficiency": 1370.709999999982,
+            "transparency": 806.3000000000104,
+            "community": 403.1500000000052
+          }
+        },
+        {
+          "contributor_id": "efficiency_optimizer",
+          "total_credits": 4055.0400000000163,
+          "credit_breakdown": {
+            "computational": 1267.2000000000087,
+            "charitable": 633.6000000000043,
+            "efficiency": 1203.8399999999967,
+            "transparency": 633.6000000000043,
+            "community": 316.80000000000217
+          }
+        },
+        {
+          "contributor_id": "healthcare_charity",
+          "total_credits": 2046.0000000000039,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 1227.6000000000056,
+            "efficiency": 0.0,
+            "transparency": 272.79999999999944,
+            "community": 545.5999999999989
+          }
+        },
+        {
+          "contributor_id": "local_food_bank",
+          "total_credits": 1655.2799999999984,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 965.5800000000008,
+            "efficiency": 0.0,
+            "transparency": 229.8999999999992,
+            "community": 459.7999999999984
+          }
+        },
+        {
+          "contributor_id": "environmental_org",
+          "total_credits": 1404.1499999999967,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 793.6499999999987,
+            "efficiency": 0.0,
+            "transparency": 203.49999999999935,
+            "community": 406.9999999999987
+          }
+        },
+        {
+          "contributor_id": "education_nonprofit",
+          "total_credits": 1270.4999999999986,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 693.0000000000005,
+            "efficiency": 0.0,
+            "transparency": 192.4999999999994,
+            "community": 384.9999999999988
+          }
+        },
+        {
+          "contributor_id": "system",
+          "total_credits": 231.00000000000006,
+          "credit_breakdown": {
+            "computational": 0.0,
+            "charitable": 0.0,
+            "efficiency": 0.0,
+            "transparency": 137.50000000000006,
+            "community": 93.49999999999999
+          }
+        }
+      ],
+      "distribution_metrics": {
+        "diversity_index": 0.782711578832756,
+        "stability_score": 0.6963024274089453,
+        "growth_rate": 0.02111381675259132
+      },
+      "community_health_score": 78.89218834472254
+    }
+  },
+  "comparative_analysis": {
+    "best_community_health": "Rapid Growth",
+    "highest_total_credits": "Sustained Operation",
+    "most_stable_scenario": "Rapid Growth",
+    "average_health_score": 76.53545731014907,
+    "total_projected_credits": 81541.68899999998,
+    "recommendations": [
+      "For maximum community health, consider parameters similar to 'Rapid Growth'",
+      "For highest credit generation, use 'Sustained Operation' scenario approach",
+      "For operational stability, follow 'Rapid Growth' patterns",
+      "Balance credit diversity to maintain healthy ecosystem dynamics",
+      "Monitor contributor participation to ensure community engagement"
+    ]
+  },
+  "generated_at": 1758696388.6671655
+}

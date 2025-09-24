@@ -1,0 +1,248 @@
+{
+  "entries": [
+    {
+      "entry_id": "6748d7ba3599b8db",
+      "timestamp": 1758696399.847941,
+      "transaction_type": "governance_action",
+      "actor_id": "system",
+      "action_description": "SPRAXXX Pantry system initialized",
+      "credits_awarded": {
+        "transparency": 5.0
+      },
+      "metadata": {
+        "initialization_time": 1758696399.8479252
+      },
+      "hash_previous": null,
+      "hash_current": "6024b755abc1fe34d5a190177e3a46d039fa77f9dfbdeba681e8357887187219",
+      "verified": true
+    },
+    {
+      "entry_id": "c140d402ba260b29",
+      "timestamp": 1758696399.8483255,
+      "transaction_type": "governance_action",
+      "actor_id": "bot_charitable_helper",
+      "action_description": "Violation detected: Commercial indicators detected: profit",
+      "credits_awarded": {},
+      "metadata": {
+        "violation_id": "violation_1758696399_bot_charitable_helper",
+        "violation_type": "commercial_use",
+        "severity": 10,
+        "rule_id": "NONPROFIT_ONLY"
+      },
+      "hash_previous": "6024b755abc1fe34d5a190177e3a46d039fa77f9dfbdeba681e8357887187219",
+      "hash_current": "b804a3f9f77e3604c40e821536931a6768ddbc1bfcdb66433288579ed194b195",
+      "verified": true
+    },
+    {
+      "entry_id": "100a51744c43b183",
+      "timestamp": 1758696399.848968,
+      "transaction_type": "bot_welcome",
+      "actor_id": "bot_education_assistant",
+      "action_description": "Bot welcomed: educational (trust: 0.85)",
+      "credits_awarded": {
+        "community": 2.0,
+        "charitable": 1.0
+      },
+      "metadata": {
+        "bot_type": "educational",
+        "trust_score": 0.85,
+        "capabilities": [
+          "text_processing",
+          "curriculum_development"
+        ]
+      },
+      "hash_previous": "b804a3f9f77e3604c40e821536931a6768ddbc1bfcdb66433288579ed194b195",
+      "hash_current": "b8318aa2fc3778314bf39dccfb0727e779da3aec7d9feb4838db2cbfa08fa3f7",
+      "verified": true
+    },
+    {
+      "entry_id": "7a3433058e433257",
+      "timestamp": 1758696399.8495498,
+      "transaction_type": "task_submission",
+      "actor_id": "bot_education_assistant",
+      "action_description": "Task submitted: Create educational materials about environmental conservation",
+      "credits_awarded": {
+        "computational": 1.0
+      },
+      "metadata": {
+        "task_id": "b5b029f3-064b-4433-b7ee-f7cbe660e5fc",
+        "task_type": "text_processing",
+        "charitable_impact": "Educate communities about environmental responsibility"
+      },
+      "hash_previous": "b8318aa2fc3778314bf39dccfb0727e779da3aec7d9feb4838db2cbfa08fa3f7",
+      "hash_current": "9c80eaf59f7a985ad6f1ba51adde7530bd85335821cf28dc039d474760eb6e11",
+      "verified": true
+    },
+    {
+      "entry_id": "ad6357a87609a50c",
+      "timestamp": 1758696399.9002814,
+      "transaction_type": "task_completion",
+      "actor_id": "bot_education_assistant",
+      "action_description": "Task completed: Create educational materials about environmental conservation",
+      "credits_awarded": {
+        "computational": 2.0,
+        "charitable": 3.0,
+        "efficiency": 2.0
+      },
+      "metadata": {
+        "task_id": "b5b029f3-064b-4433-b7ee-f7cbe660e5fc",
+        "output_id": "4c0d0bd0-5752-454d-abbc-382af7d05a30",
+        "energy_used": 0.00500788688659668,
+        "charitable_impact": "Educate communities about environmental responsibility"
+      },
+      "hash_previous": "9c80eaf59f7a985ad6f1ba51adde7530bd85335821cf28dc039d474760eb6e11",
+      "hash_current": "cadc47e40046b350aeaac7496703644d84ff96325a42ea2cdc25221e3768c2fd",
+      "verified": true
+    },
+    {
+      "entry_id": "6478f8e12771dcd7",
+      "timestamp": 1758696399.9008934,
+      "transaction_type": "governance_action",
+      "actor_id": "consumer_local_food_bank",
+      "action_description": "Charitable consumer registered: Local Community Food Bank",
+      "credits_awarded": {
+        "community": 3.0,
+        "transparency": 2.0
+      },
+      "metadata": {
+        "consumer_name": "Local Community Food Bank",
+        "mission": "Provide food assistance to families in need in our community",
+        "registration_time": 1758696399.9008842
+      },
+      "hash_previous": "cadc47e40046b350aeaac7496703644d84ff96325a42ea2cdc25221e3768c2fd",
+      "hash_current": "a36cd316ce0c5b133e20f4cbb9f5038c367cffa1b445fce1dd0ee1e03c42777f",
+      "verified": true
+    },
+    {
+      "entry_id": "686b0ff42b510137",
+      "timestamp": 1758696399.9014947,
+      "transaction_type": "governance_action",
+      "actor_id": "consumer_education_nonprofit",
+      "action_description": "Charitable consumer registered: Community Education Initiative",
+      "credits_awarded": {
+        "community": 3.0,
+        "transparency": 2.0
+      },
+      "metadata": {
+        "consumer_name": "Community Education Initiative",
+        "mission": "Provide free educational resources and programs to underserved communities",
+        "registration_time": 1758696399.9014878
+      },
+      "hash_previous": "a36cd316ce0c5b133e20f4cbb9f5038c367cffa1b445fce1dd0ee1e03c42777f",
+      "hash_current": "e3c7d6b6cd982eb4406621466c0deb2494283ad264ea878bf73cfdd3731c2d28",
+      "verified": true
+    }
+  ],
+  "accounts": {
+    "system": {
+      "account_id": "system",
+      "account_type": "system",
+      "name": "system",
+      "credit_balances": {
+        "computational": 0.0,
+        "charitable": 0.0,
+        "efficiency": 0.0,
+        "transparency": 5.0,
+        "community": 0.0
+      },
+      "total_earned": {
+        "computational": 0.0,
+        "charitable": 0.0,
+        "efficiency": 0.0,
+        "transparency": 5.0,
+        "community": 0.0
+      },
+      "transaction_count": 1,
+      "created_at": 1758696399.847977,
+      "last_activity": 1758696399.84798
+    },
+    "bot_charitable_helper": {
+      "account_id": "bot_charitable_helper",
+      "account_type": "bot",
+      "name": "bot_charitable_helper",
+      "credit_balances": {
+        "computational": 0.0,
+        "charitable": 0.0,
+        "efficiency": 0.0,
+        "transparency": 0.0,
+        "community": 0.0
+      },
+      "total_earned": {
+        "computational": 0.0,
+        "charitable": 0.0,
+        "efficiency": 0.0,
+        "transparency": 0.0,
+        "community": 0.0
+      },
+      "transaction_count": 1,
+      "created_at": 1758696399.8483615,
+      "last_activity": 1758696399.848363
+    },
+    "bot_education_assistant": {
+      "account_id": "bot_education_assistant",
+      "account_type": "bot",
+      "name": "bot_education_assistant",
+      "credit_balances": {
+        "computational": 3.0,
+        "charitable": 4.0,
+        "efficiency": 2.0,
+        "transparency": 0.0,
+        "community": 2.0
+      },
+      "total_earned": {
+        "computational": 3.0,
+        "charitable": 4.0,
+        "efficiency": 2.0,
+        "transparency": 0.0,
+        "community": 2.0
+      },
+      "transaction_count": 3,
+      "created_at": 1758696399.8490007,
+      "last_activity": 1758696399.9003172
+    },
+    "consumer_local_food_bank": {
+      "account_id": "consumer_local_food_bank",
+      "account_type": "consumer",
+      "name": "consumer_local_food_bank",
+      "credit_balances": {
+        "computational": 0.0,
+        "charitable": 0.0,
+        "efficiency": 0.0,
+        "transparency": 2.0,
+        "community": 3.0
+      },
+      "total_earned": {
+        "computational": 0.0,
+        "charitable": 0.0,
+        "efficiency": 0.0,
+        "transparency": 2.0,
+        "community": 3.0
+      },
+      "transaction_count": 1,
+      "created_at": 1758696399.9009275,
+      "last_activity": 1758696399.9009302
+    },
+    "consumer_education_nonprofit": {
+      "account_id": "consumer_education_nonprofit",
+      "account_type": "consumer",
+      "name": "consumer_education_nonprofit",
+      "credit_balances": {
+        "computational": 0.0,
+        "charitable": 0.0,
+        "efficiency": 0.0,
+        "transparency": 2.0,
+        "community": 3.0
+      },
+      "total_earned": {
+        "computational": 0.0,
+        "charitable": 0.0,
+        "efficiency": 0.0,
+        "transparency": 2.0,
+        "community": 3.0
+      },
+      "transaction_count": 1,
+      "created_at": 1758696399.9015238,
+      "last_activity": 1758696399.9015262
+    }
+  }
+}
