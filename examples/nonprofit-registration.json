@@ -1,0 +1,116 @@
+{
+  "example": "SPRAXXX Pantry Nonprofit Registration",
+  "founder": "Jacquot Maple Monster Periard Raymond",
+  "organization": "SPRAXXX Legacy Foundation",
+  "purpose": "Example nonprofit registration for charitable resource access",
+  "charitable_only": true,
+  
+  "registration_data": {
+    "organizationName": "Example Humanitarian Foundation",
+    "missionStatement": "We serve humanity by providing clean water access to underserved communities worldwide. Our mission aligns with the public good through sustainable infrastructure development, community education, and transparent impact reporting.",
+    "nonprofitStatus": "501c3",
+    "documentation": {
+      "501c3_determination_letter": "/path/to/irs-determination-letter.pdf",
+      "charity_registration": "/path/to/state-charity-registration.pdf",
+      "nonprofit_articles": "/path/to/articles-of-incorporation.pdf",
+      "mission_statement": "/path/to/detailed-mission-statement.pdf",
+      "financial_transparency": "/path/to/annual-report-with-financials.pdf"
+    },
+    "contactInformation": {
+      "primaryContact": "Jane Smith, Executive Director",
+      "email": "contact@examplehumanitarian.org",
+      "phone": "+1-555-123-4567",
+      "website": "https://www.examplehumanitarian.org",
+      "address": {
+        "street": "123 Charity Lane",
+        "city": "Nonprofit City",
+        "state": "CA",
+        "zip": "90210",
+        "country": "USA"
+      }
+    },
+    "requestedResources": {
+      "computational_power": "High - for water quality modeling and distribution optimization",
+      "data_processing": "Geographic information systems analysis for site selection",
+      "research_support": "Environmental impact assessment calculations",
+      "community_impact": "Benefiting 50,000+ people annually through clean water access"
+    },
+    "publicBenefitDescription": "Our organization directly serves the public good by addressing the global water crisis. We provide clean water access to communities lacking basic sanitation infrastructure. Our work includes: (1) Installing sustainable water filtration systems, (2) Training local communities in maintenance and operation, (3) Monitoring water quality through scientific testing, (4) Providing health education on waterborne disease prevention, (5) Creating economic opportunities through local employment in water system maintenance. All our work is conducted transparently with regular community reporting and impact measurement. We commit to using SPRAXXX Pantry resources exclusively for computational tasks that enhance our charitable mission, including optimizing water distribution networks, analyzing environmental impact data, and modeling sustainable infrastructure solutions.",
+    "transparencyCommitment": true,
+    "governance_participation": {
+      "advisory_board": "Willing to participate in SPRAXXX Pantry Advisory Board",
+      "community_oversight": "Accept community oversight of resource usage",
+      "public_reporting": "Commit to quarterly public reports on computational resource impact",
+      "democratic_participation": "Will participate in governance voting and decision-making"
+    },
+    "ethical_standards": {
+      "commercial_use": false,
+      "monetization": false,
+      "charitable_only": true,
+      "public_benefit_priority": true,
+      "transparent_operations": true
+    }
+  },
+  
+  "api_example": {
+    "method": "POST",
+    "url": "http://localhost:3000/nonprofit/register",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "NonprofitRegistration/1.0 (charitable-purpose)",
+      "X-Organization-Name": "Example Humanitarian Foundation"
+    },
+    "curl_command": "curl -X POST http://localhost:3000/nonprofit/register -H 'Content-Type: application/json' -H 'User-Agent: NonprofitRegistration/1.0 (charitable-purpose)' -d @nonprofit-registration.json"
+  },
+  
+  "expected_response": {
+    "status": "pending_verification",
+    "message": "Nonprofit application submitted for community review",
+    "registrationId": "NPR-[timestamp]-[random]",
+    "nextSteps": [
+      "Community review of nonprofit status and mission alignment",
+      "Verification of submitted documentation",
+      "Ethical assessment of public benefit claims",
+      "Advisory board evaluation and recommendation",
+      "Final approval by SPRAXXX Legacy Foundation"
+    ],
+    "estimatedReviewTime": "7-14 days",
+    "transparencyNotice": "This application will be reviewed transparently with community input"
+  },
+  
+  "verification_process": {
+    "step1": {
+      "name": "Initial Validation",
+      "duration": "1-2 days",
+      "process": "Automated validation of required fields and documentation format"
+    },
+    "step2": {
+      "name": "Community Review",
+      "duration": "5-7 days", 
+      "process": "Public review period for community input and feedback"
+    },
+    "step3": {
+      "name": "Advisory Board Assessment",
+      "duration": "3-5 days",
+      "process": "Detailed evaluation by nonprofit representatives on Advisory Board"
+    },
+    "step4": {
+      "name": "Foundation Approval",
+      "duration": "1-2 days",
+      "process": "Final review and approval by SPRAXXX Legacy Foundation"
+    }
+  },
+  
+  "post_approval": {
+    "verification_token": "NPT-[organizationId]-[timestamp]-[signature]",
+    "access_level": "verified_nonprofit",
+    "resource_allocation": "Based on project priority and community benefit",
+    "reporting_requirements": "Quarterly impact reports and transparent usage documentation",
+    "governance_rights": "Voting on resource allocation priorities and system improvements"
+  },
+  
+  "charitable_notice": "This registration process ensures SPRAXXX Pantry serves only verified nonprofit organizations committed to public benefit and transparent operations.",
+  "license_compliance": "All registered organizations must comply with charitable-only usage terms and participate in democratic governance processes.",
+  "founder_attribution": "Jacquot Maple Monster Periard Raymond - Founder and inventor of SPRAXXX Pantry charitable system",
+  "foundation_attribution": "SPRAXXX Legacy Foundation - Steward of charitable computational infrastructure"
+}

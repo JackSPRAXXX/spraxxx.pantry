@@ -53,11 +53,11 @@ class CommercialProtection {
     const analysis = this.analyzeRequest(req);
     
     if (analysis.suspiciousCommercial) {
-      return this.handleSuspiciousActivity(analysis, req, res);
+      return this.handleSuspiciousActivity(analysis, req, res, next);
     }
 
     if (analysis.violatesLicense) {
-      return this.blockCommercialViolation(analysis, req, res);
+      return this.blockCommercialViolation(analysis, req, res, next);
     }
 
     // Log monitoring activity
@@ -136,7 +136,7 @@ class CommercialProtection {
     return analysis;
   }
 
-  handleSuspiciousActivity(analysis, req, res) {
+  handleSuspiciousActivity(analysis, req, res, next) {
     logger.charitable.protection('Suspicious commercial activity detected', {
       ip: analysis.ip,
       commercialScore: analysis.commercialScore,
@@ -156,10 +156,10 @@ class CommercialProtection {
 
     // Continue with enhanced monitoring
     req.commercialMonitoring = true;
-    return this.next();
+    next();
   }
 
-  blockCommercialViolation(analysis, req, res) {
+  blockCommercialViolation(analysis, req, res, next) {
     logger.charitable.violation('Commercial license violation blocked', {
       ip: analysis.ip,
       commercialScore: analysis.commercialScore,

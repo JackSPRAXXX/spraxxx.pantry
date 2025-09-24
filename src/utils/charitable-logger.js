@@ -94,8 +94,8 @@ logger.add(new winston.transports.File({
           publicInfo: meta.publicInfo || 'Charitable operation logged'
         });
       }
-      return null;
-    }).replace(/null\n/g, '')
+      return ''; // Return empty string instead of null
+    })
   )
 }));
 
