@@ -1,0 +1,69 @@
+{
+  "name": "spraxxx-pantry",
+  "version": "1.0.0",
+  "description": "SPRAXXX Pantry - Charitable computational infrastructure transforming wasted digital energy into public good",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "jest",
+    "lint": "eslint src/",
+    "verify-charitable": "node scripts/verify-charitable-usage.js",
+    "audit-impact": "node scripts/audit-charitable-impact.js"
+  },
+  "keywords": [
+    "charitable",
+    "nonprofit",
+    "bot-redirection",
+    "ethical-ai",
+    "public-good",
+    "computational-charity"
+  ],
+  "author": {
+    "name": "Jacquot Maple Monster Periard Raymond",
+    "organization": "SPRAXXX Legacy Foundation",
+    "email": "foundation@spraxxx-legacy.org"
+  },
+  "license": "SEE LICENSE.md - CHARITABLE ONLY",
+  "charitable": {
+    "founder": "Jacquot Maple Monster Periard Raymond",
+    "organization": "SPRAXXX Legacy Foundation",
+    "purpose": "Transforming wasted digital energy into charitable computation",
+    "restrictions": "NO COMMERCIAL USE - NONPROFIT ONLY",
+    "date_created": "2025-09-24"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "winston": "^3.10.0",
+    "joi": "^17.9.2",
+    "rate-limiter-flexible": "^2.4.1"
+  },
+  "devDependencies": {
+    "jest": "^29.6.2",
+    "eslint": "^8.45.0",
+    "nodemon": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JackSPRAXXX/spraxxx.pantry.git"
+  },
+  "funding": {
+    "type": "charitable",
+    "url": "https://spraxxx-legacy-foundation.org/donate"
+  },
+  "ethics": {
+    "commercial_use": "PROHIBITED",
+    "monetization": "PROHIBITED", 
+    "exploitation": "PROHIBITED",
+    "required_attribution": "Jacquot Maple Monster Periard Raymond, SPRAXXX Legacy Foundation",
+    "charitable_only": true,
+    "public_benefit": true,
+    "transparent_governance": true
+  }
+}
