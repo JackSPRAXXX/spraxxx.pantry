@@ -1,0 +1,10 @@
+# Runtime directories - do not commit
+museum/
+workshop/
+
+# Keep directory structure markers
+!museum/.gitkeep
+!workshop/.gitkeep
+!workshop/dropit/.gitkeep
+!workshop/dropit/inbox/.gitkeep
+!workshop/staging/.gitkeep

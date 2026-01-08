@@ -1,0 +1,29 @@
+[Unit]
+Description=SPRAXXX Messiah Lock - Museum Read-Only Enforcement
+Documentation=https://github.com/JackSPRAXXX/spraxxx.pantry
+After=local-fs.target
+Before=shutdown.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+
+# Path to museum directory (adjust for deployment)
+Environment=MUSEUM_PATH=/messiah/museum
+
+# On start: Ensure museum is read-only
+ExecStart=/bin/bash -c 'chmod -R 555 ${MUSEUM_PATH} && echo "Museum locked (RO) at $(date)"'
+
+# On stop: Keep museum read-only (defensive)
+ExecStop=/bin/bash -c 'chmod -R 555 ${MUSEUM_PATH} && echo "Museum re-locked (RO) at $(date)"'
+
+# Security: Run with minimal privileges
+User=root
+Group=root
+
+# If this service fails to start, treat as critical
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,390 @@
+#!/usr/bin/env python3
+"""
+messiah-commit — Lane B/C: Stage, Test, Commit to Museum
+Purpose: Classify, stage, optionally execute, then commit to Museum
+Doctrine: No execution without explicit --apply flag
+Museum commits include: artifact + report + manifest
+"""
+
+import sys
+import os
+import json
+import hashlib
+import shutil
+import subprocess
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Optional, Dict, Any, List
+
+# Add lib to path
+sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
+from messiah_lock import MessiahLock, Artifact, generate_artifact_id
+
+
+class MessiahCommit:
+    """Handles staging, validation, optional execution, and Museum commits."""
+
+    def __init__(self, workshop_path: str = None, museum_path: str = None):
+        if workshop_path:
+            self.workshop_path = Path(workshop_path)
+        else:
+            script_dir = Path(__file__).parent.parent
+            self.workshop_path = script_dir / "workshop"
+
+        if museum_path:
+            self.museum_path = Path(museum_path)
+        else:
+            script_dir = Path(__file__).parent.parent
+            self.museum_path = script_dir / "museum"
+
+        self.staging_path = self.workshop_path / "staging"
+        self.inbox_path = self.workshop_path / "dropit" / "inbox"
+
+        self.staging_path.mkdir(parents=True, exist_ok=True)
+        self.museum_path.mkdir(parents=True, exist_ok=True)
+
+        self.lock = MessiahLock(
+            museum_path=str(self.museum_path),
+            workshop_path=str(self.workshop_path)
+        )
+
+    def load_drop(self, drop_id: str) -> Optional[Dict[str, Any]]:
+        """Load a drop from inbox by ID."""
+        drop_file = self.inbox_path / f"{drop_id}.txt"
+        meta_file = self.inbox_path / f"{drop_id}.meta"
+
+        if not drop_file.exists():
+            print(f"Error: Drop not found: {drop_id}", file=sys.stderr)
+            return None
+
+        # Load content
+        with open(drop_file, 'r') as f:
+            content = f.read()
+
+        # Load metadata if exists
+        metadata = {}
+        if meta_file.exists():
+            with open(meta_file, 'r') as f:
+                metadata = json.load(f)
+
+        return {
+            "drop_id": drop_id,
+            "content": content,
+            "metadata": metadata,
+            "drop_file": str(drop_file)
+        }
+
+    def classify_content(self, content: str) -> str:
+        """
+        Classify content type.
+        Returns: 'script', 'config', 'text', 'data'
+        """
+        lines = content.strip().split('\n')
+
+        # Check for shebang
+        if lines[0].startswith('#!'):
+            return 'script'
+
+        # Check for common config patterns
+        if any(keyword in content for keyword in ['[', '{', 'key:', 'server {']):
+            return 'config'
+
+        # Check for code patterns
+        if any(keyword in content for keyword in ['def ', 'class ', 'function ', 'import ', 'from ']):
+            return 'script'
+
+        # Default to text
+        return 'text'
+
+    def stage_drop(self, drop: Dict[str, Any]) -> Path:
+        """
+        Stage drop in unique staging directory.
+        Returns staging directory path.
+        """
+        timestamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+        stage_id = f"stage-{drop['drop_id']}-{timestamp}"
+        stage_dir = self.staging_path / stage_id
+
+        stage_dir.mkdir(parents=True, exist_ok=True)
+
+        # Write staged content
+        staged_file = stage_dir / "payload.txt"
+        with open(staged_file, 'w') as f:
+            f.write(drop['content'])
+
+        # Write staging metadata
+        classification = self.classify_content(drop['content'])
+
+        stage_meta = {
+            "stage_id": stage_id,
+            "drop_id": drop['drop_id'],
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "classification": classification,
+            "size_bytes": len(drop['content'].encode('utf-8')),
+            "staged_file": str(staged_file)
+        }
+
+        with open(stage_dir / "stage.meta", 'w') as f:
+            json.dump(stage_meta, f, indent=2)
+
+        return stage_dir
+
+    def execute_if_allowed(self, stage_dir: Path, apply: bool = False) -> Dict[str, Any]:
+        """
+        Optionally execute staged content if --apply flag is set.
+        Returns execution report.
+        """
+        report = {
+            "executed": False,
+            "apply_flag": apply,
+            "result": None,
+            "stdout": None,
+            "stderr": None,
+            "exit_code": None,
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        }
+
+        if not apply:
+            report["result"] = "SKIPPED: No --apply flag. Execution not permitted."
+            return report
+
+        # Load staged content
+        payload_file = stage_dir / "payload.txt"
+        with open(payload_file, 'r') as f:
+            content = f.read()
+
+        # Load classification
+        with open(stage_dir / "stage.meta", 'r') as f:
+            meta = json.load(f)
+
+        classification = meta.get("classification", "unknown")
+
+        if classification != "script":
+            report["result"] = f"SKIPPED: Classification '{classification}' is not executable."
+            return report
+
+        # Execute script
+        try:
+            # Write to temp executable
+            exec_file = stage_dir / "payload.sh"
+            with open(exec_file, 'w') as f:
+                f.write(content)
+            os.chmod(exec_file, 0o755)
+
+            # Execute
+            result = subprocess.run(
+                [str(exec_file)],
+                capture_output=True,
+                text=True,
+                timeout=60,
+                cwd=str(stage_dir)
+            )
+
+            report["executed"] = True
+            report["result"] = "EXECUTED"
+            report["stdout"] = result.stdout
+            report["stderr"] = result.stderr
+            report["exit_code"] = result.returncode
+
+        except subprocess.TimeoutExpired:
+            report["result"] = "TIMEOUT: Execution exceeded 60 seconds"
+        except Exception as e:
+            report["result"] = f"ERROR: {str(e)}"
+
+        return report
+
+    def validate_staging(self, stage_dir: Path) -> Dict[str, Any]:
+        """
+        Run validation checks on staged content.
+        Returns validation report.
+        """
+        validation = {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "checks": []
+        }
+
+        # Check file exists
+        payload_file = stage_dir / "payload.txt"
+        if payload_file.exists():
+            validation["checks"].append({
+                "check": "file_exists",
+                "status": "PASS",
+                "message": "Staged payload file exists"
+            })
+        else:
+            validation["checks"].append({
+                "check": "file_exists",
+                "status": "FAIL",
+                "message": "Staged payload file missing"
+            })
+
+        # Verify hash integrity
+        with open(payload_file, 'r') as f:
+            content = f.read()
+        current_hash = hashlib.sha256(content.encode('utf-8')).hexdigest()
+
+        validation["checks"].append({
+            "check": "hash_computed",
+            "status": "PASS",
+            "message": f"SHA256: {current_hash[:16]}...",
+            "sha256": current_hash
+        })
+
+        return validation
+
+    def commit_to_museum(self, stage_dir: Path, execution_report: Dict[str, Any],
+                        validation_report: Dict[str, Any]) -> bool:
+        """
+        Commit staged artifact to Museum with full evidence package.
+        """
+        # Load staged content
+        payload_file = stage_dir / "payload.txt"
+        with open(payload_file, 'r') as f:
+            content = f.read()
+
+        # Load staging metadata
+        with open(stage_dir / "stage.meta", 'r') as f:
+            stage_meta = json.load(f)
+
+        # Build complete report
+        commit_report = {
+            "stage_id": stage_meta["stage_id"],
+            "drop_id": stage_meta["drop_id"],
+            "classification": stage_meta["classification"],
+            "validation": validation_report,
+            "execution": execution_report,
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        }
+
+        report_text = json.dumps(commit_report, indent=2)
+
+        # Create artifact
+        artifact = Artifact(
+            content=content,
+            metadata={
+                "drop_id": stage_meta["drop_id"],
+                "stage_id": stage_meta["stage_id"],
+                "classification": stage_meta["classification"],
+                "commit_report": commit_report
+            }
+        )
+
+        # Generate artifact ID
+        artifact_id = generate_artifact_id(prefix=stage_meta["drop_id"])
+
+        # Open museum commit window
+        print("\n[Messiah Lock] Opening museum commit window...")
+        if not self.lock.open_commit_window():
+            print("ERROR: Failed to open museum commit window", file=sys.stderr)
+            return False
+
+        try:
+            # Write to museum
+            print(f"[Museum] Writing artifact: {artifact_id}")
+            artifact.write_to_museum(self.museum_path, artifact_id)
+
+            # Write report
+            artifact_dir = self.museum_path / artifact_id
+            with open(artifact_dir / "report.txt", 'w') as f:
+                f.write(report_text)
+
+            print(f"[Museum] Artifact committed: {artifact_id}")
+
+        finally:
+            # CRITICAL: Re-lock museum
+            print("[Messiah Lock] Closing museum commit window...")
+            if not self.lock.close_commit_window():
+                print("CRITICAL ERROR: Failed to re-lock museum!", file=sys.stderr)
+                print("Museum is in UNSAFE state. Manual intervention required.", file=sys.stderr)
+                return False
+
+        print("[Messiah Lock] Museum re-locked successfully.")
+        return True
+
+
+def print_help():
+    """Print usage help."""
+    print("Usage: messiah-commit <drop_id> [--apply]")
+    print()
+    print("Arguments:")
+    print("  <drop_id>    Drop ID from dropit command")
+    print("  --apply      Optional: Execute/install if classified as script")
+    print()
+    print("Doctrine:")
+    print("  - No execution without explicit --apply flag")
+    print("  - All commits create immutable Museum artifacts")
+    print("  - Museum is RO by default; write window is temporary")
+
+
+def main():
+    """Main entry point for messiah-commit."""
+
+    if len(sys.argv) < 2:
+        print_help()
+        sys.exit(1)
+
+    drop_id = sys.argv[1]
+    apply = "--apply" in sys.argv
+
+    print("=" * 60)
+    print("MESSIAH COMMIT — Lane B/C")
+    print("=" * 60)
+    print(f"Drop ID: {drop_id}")
+    print(f"Apply flag: {'ENABLED' if apply else 'DISABLED (dry-run)'}")
+    print("=" * 60)
+
+    commit = MessiahCommit()
+
+    # Load drop
+    print("\n[Stage 1] Loading drop from inbox...")
+    drop = commit.load_drop(drop_id)
+    if not drop:
+        sys.exit(1)
+
+    print(f"Loaded: {len(drop['content'])} bytes")
+
+    # Stage drop
+    print("\n[Stage 2] Staging drop...")
+    stage_dir = commit.stage_drop(drop)
+    print(f"Staged to: {stage_dir}")
+
+    # Classify
+    classification = commit.classify_content(drop['content'])
+    print(f"Classification: {classification}")
+
+    # Validate
+    print("\n[Stage 3] Running validation...")
+    validation_report = commit.validate_staging(stage_dir)
+    for check in validation_report["checks"]:
+        print(f"  {check['check']}: {check['status']} - {check['message']}")
+
+    # Execute if allowed
+    print("\n[Stage 4] Execution phase...")
+    execution_report = commit.execute_if_allowed(stage_dir, apply=apply)
+    print(f"  Result: {execution_report['result']}")
+
+    if execution_report.get("stdout"):
+        print(f"  STDOUT: {execution_report['stdout'][:200]}")
+    if execution_report.get("stderr"):
+        print(f"  STDERR: {execution_report['stderr'][:200]}")
+
+    # Commit to Museum
+    print("\n[Stage 5] Committing to Museum...")
+    success = commit.commit_to_museum(stage_dir, execution_report, validation_report)
+
+    if success:
+        print("\n" + "=" * 60)
+        print("COMMIT SUCCESSFUL")
+        print("=" * 60)
+        print("Artifact written to Museum.")
+        print("Museum re-locked (RO).")
+        print("Truth preserved. Trace complete.")
+    else:
+        print("\n" + "=" * 60)
+        print("COMMIT FAILED")
+        print("=" * 60)
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

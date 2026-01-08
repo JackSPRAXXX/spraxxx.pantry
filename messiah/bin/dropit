@@ -1,0 +1,147 @@
+#!/usr/bin/env python3
+"""
+dropit — Lane A: Safe Capture
+Purpose: Accept pasted content without execution
+Writes to: /messiah/workshop/dropit/inbox/
+Produces: .sha256 receipt + .meta header file
+Doctrine: Capture ≠ Apply. No silent execution.
+"""
+
+import sys
+import hashlib
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+
+
+class DropIt:
+    """Safe content capture without execution."""
+
+    def __init__(self, inbox_path: str = None):
+        if inbox_path:
+            self.inbox_path = Path(inbox_path)
+        else:
+            # Default: relative to script location
+            script_dir = Path(__file__).parent.parent
+            self.inbox_path = script_dir / "workshop" / "dropit" / "inbox"
+
+        self.inbox_path.mkdir(parents=True, exist_ok=True)
+
+    def generate_drop_id(self) -> str:
+        """Generate unique drop ID with timestamp."""
+        timestamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S-%f")
+        return f"drop-{timestamp}"
+
+    def compute_sha256(self, content: str) -> str:
+        """Generate SHA256 hash of content."""
+        return hashlib.sha256(content.encode('utf-8')).hexdigest()
+
+    def capture(self, content: str, source: str = "stdin") -> dict:
+        """
+        Safely capture content to inbox.
+
+        Returns receipt with:
+        - drop_id
+        - sha256
+        - timestamp
+        - file paths
+        """
+        drop_id = self.generate_drop_id()
+        sha256 = self.compute_sha256(content)
+        timestamp = datetime.now(timezone.utc).isoformat()
+
+        # File paths
+        drop_file = self.inbox_path / f"{drop_id}.txt"
+        hash_file = self.inbox_path / f"{drop_id}.sha256"
+        meta_file = self.inbox_path / f"{drop_id}.meta"
+
+        # Write content
+        with open(drop_file, 'w') as f:
+            f.write(content)
+
+        # Write hash receipt
+        with open(hash_file, 'w') as f:
+            f.write(f"{sha256}  {drop_file.name}\n")
+
+        # Write metadata
+        metadata = {
+            "drop_id": drop_id,
+            "timestamp": timestamp,
+            "sha256": sha256,
+            "source": source,
+            "size_bytes": len(content.encode('utf-8')),
+            "inbox_path": str(self.inbox_path),
+            "status": "captured"
+        }
+
+        with open(meta_file, 'w') as f:
+            json.dump(metadata, f, indent=2)
+
+        # Return receipt
+        receipt = {
+            "drop_id": drop_id,
+            "sha256": sha256,
+            "timestamp": timestamp,
+            "drop_file": str(drop_file),
+            "hash_file": str(hash_file),
+            "meta_file": str(meta_file),
+            "size_bytes": metadata["size_bytes"]
+        }
+
+        return receipt
+
+
+def print_receipt(receipt: dict):
+    """Display receipt to user."""
+    print("=" * 60)
+    print("DROPIT RECEIPT")
+    print("=" * 60)
+    print(f"Drop ID:    {receipt['drop_id']}")
+    print(f"SHA256:     {receipt['sha256']}")
+    print(f"Timestamp:  {receipt['timestamp']}")
+    print(f"Size:       {receipt['size_bytes']} bytes")
+    print(f"\nFiles created:")
+    print(f"  Content:  {receipt['drop_file']}")
+    print(f"  Hash:     {receipt['hash_file']}")
+    print(f"  Metadata: {receipt['meta_file']}")
+    print("=" * 60)
+    print("\nCaptured safely. No execution. No install.")
+    print(f"Next: messiah-commit {receipt['drop_id']} [--apply]")
+    print("=" * 60)
+
+
+def main():
+    """Main entry point for dropit command."""
+
+    if len(sys.argv) > 1:
+        # Read from file argument
+        file_path = Path(sys.argv[1])
+        if not file_path.exists():
+            print(f"Error: File not found: {file_path}", file=sys.stderr)
+            sys.exit(1)
+
+        with open(file_path, 'r') as f:
+            content = f.read()
+        source = f"file:{file_path}"
+
+    else:
+        # Read from stdin (paste mode)
+        print("dropit — Paste content below, then Ctrl+D (EOF) to capture:")
+        print("-" * 60)
+        content = sys.stdin.read()
+        source = "stdin"
+
+    if not content.strip():
+        print("Error: No content received.", file=sys.stderr)
+        sys.exit(1)
+
+    # Capture safely
+    dropit = DropIt()
+    receipt = dropit.capture(content, source=source)
+
+    # Show receipt
+    print_receipt(receipt)
+
+
+if __name__ == "__main__":
+    main()
