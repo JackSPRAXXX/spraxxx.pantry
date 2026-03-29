@@ -1,0 +1,376 @@
+tries; 5 > 3
+Mar 29 22:59:50 ubuntu sshd[1181]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=103.23.198.86  user=root
+Mar 29 22:59:52 ubuntu sshd[1181]: Failed password for root from 103.23.198.86 port 52850 ssh2
+Mar 29 22:59:54 ubuntu sshd[1181]: Received disconnect from 103.23.198.86 port 52850:11: Bye Bye [preauth]
+Mar 29 22:59:54 ubuntu sshd[1181]: Disconnected from authenticating user root 103.23.198.86 port 52850 [preauth]
+Mar 29 23:00:17 ubuntu sshd[1186]: Invalid user demo from 51.79.84.112 port 39380
+Mar 29 23:00:17 ubuntu sshd[1186]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:00:17 ubuntu sshd[1186]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112
+Mar 29 23:00:19 ubuntu sshd[1186]: Failed password for invalid user demo from 51.79.84.112 port 39380 ssh2
+Mar 29 23:00:19 ubuntu sshd[1186]: Connection closed by invalid user demo 51.79.84.112 port 39380 [preauth]
+Mar 29 23:00:40 ubuntu sshd[1190]: Invalid user deploy from 51.79.84.112 port 34908
+Mar 29 23:00:40 ubuntu sshd[1190]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:00:40 ubuntu sshd[1190]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112
+Mar 29 23:00:42 ubuntu sshd[1192]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.122.191  user=root
+Mar 29 23:00:42 ubuntu sshd[1190]: Failed password for invalid user deploy from 51.79.84.112 port 34908 ssh2
+Mar 29 23:00:43 ubuntu sshd[1190]: Connection closed by invalid user deploy 51.79.84.112 port 34908 [preauth]
+Mar 29 23:00:44 ubuntu sshd[1192]: Failed password for root from 2.57.122.191 port 58128 ssh2
+Mar 29 23:00:48 ubuntu sshd[1192]: Failed password for root from 2.57.122.191 port 58128 ssh2
+Mar 29 23:00:51 ubuntu sshd[1194]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=20.203.42.204  user=root
+Mar 29 23:00:51 ubuntu sshd[1192]: Failed password for root from 2.57.122.191 port 58128 ssh2
+Mar 29 23:00:54 ubuntu sshd[1194]: Failed password for root from 20.203.42.204 port 47594 ssh2
+Mar 29 23:00:55 ubuntu sshd[1194]: Received disconnect from 20.203.42.204 port 47594:11: Bye Bye [preauth]
+Mar 29 23:00:55 ubuntu sshd[1194]: Disconnected from authenticating user root 20.203.42.204 port 47594 [preauth]
+Mar 29 23:00:55 ubuntu sshd[1192]: Failed password for root from 2.57.122.191 port 58128 ssh2
+Mar 29 23:00:59 ubuntu sshd[1192]: Failed password for root from 2.57.122.191 port 58128 ssh2
+Mar 29 23:01:00 ubuntu sshd[1192]: Connection reset by authenticating user root 2.57.122.191 port 58128 [preauth]
+Mar 29 23:01:00 ubuntu sshd[1192]: PAM 4 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.122.191  user=root
+Mar 29 23:01:00 ubuntu sshd[1192]: PAM service(sshd) ignoring max retries; 5 > 3
+Mar 29 23:01:19 ubuntu sshd[1196]: Invalid user dev from 51.79.84.112 port 49746
+Mar 29 23:01:19 ubuntu sshd[1196]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:01:19 ubuntu sshd[1196]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112
+Mar 29 23:01:21 ubuntu sshd[1196]: Failed password for invalid user dev from 51.79.84.112 port 49746 ssh2
+Mar 29 23:01:21 ubuntu sshd[1196]: Connection closed by invalid user dev 51.79.84.112 port 49746 [preauth]
+Mar 29 23:01:27 ubuntu sshd[1199]: Invalid user oscar from 51.79.84.112 port 60988
+Mar 29 23:01:27 ubuntu sshd[1199]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:01:27 ubuntu sshd[1199]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112
+Mar 29 23:01:29 ubuntu sshd[1199]: Failed password for invalid user oscar from 51.79.84.112 port 60988 ssh2
+Mar 29 23:01:31 ubuntu sshd[1199]: Connection closed by invalid user oscar 51.79.84.112 port 60988 [preauth]
+Mar 29 23:02:22 ubuntu sshd[1216]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.121.17  user=root
+Mar 29 23:02:24 ubuntu sshd[1216]: Failed password for root from 2.57.121.17 port 36022 ssh2
+Mar 29 23:02:27 ubuntu sshd[1216]: Failed password for root from 2.57.121.17 port 36022 ssh2
+Mar 29 23:02:30 ubuntu sshd[1216]: Failed password for root from 2.57.121.17 port 36022 ssh2
+Mar 29 23:02:32 ubuntu sshd[1218]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.213.96.6  user=root
+Mar 29 23:02:34 ubuntu sshd[1216]: Failed password for root from 2.57.121.17 port 36022 ssh2
+Mar 29 23:02:34 ubuntu sshd[1218]: Failed password for root from 211.213.96.6 port 55418 ssh2
+Mar 29 23:02:35 ubuntu sshd[1218]: Received disconnect from 211.213.96.6 port 55418:11: Bye Bye [preauth]
+Mar 29 23:02:35 ubuntu sshd[1218]: Disconnected from authenticating user root 211.213.96.6 port 55418 [preauth]
+Mar 29 23:02:38 ubuntu sshd[1216]: Failed password for root from 2.57.121.17 port 36022 ssh2
+Mar 29 23:02:38 ubuntu sshd[1220]: Invalid user dev from 51.79.84.112 port 55552
+Mar 29 23:02:38 ubuntu sshd[1220]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:02:38 ubuntu sshd[1220]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112
+Mar 29 23:02:39 ubuntu sshd[1216]: Connection reset by authenticating user root 2.57.121.17 port 36022 [preauth]
+Mar 29 23:02:39 ubuntu sshd[1216]: PAM 4 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.121.17  user=root
+Mar 29 23:02:39 ubuntu sshd[1216]: PAM service(sshd) ignoring max retries; 5 > 3
+Mar 29 23:02:40 ubuntu sshd[1220]: Failed password for invalid user dev from 51.79.84.112 port 55552 ssh2
+Mar 29 23:02:41 ubuntu sshd[1220]: Connection closed by invalid user dev 51.79.84.112 port 55552 [preauth]
+Mar 29 23:03:25 ubuntu sshd[1222]: Invalid user lighthouse from 51.79.84.112 port 35842
+Mar 29 23:03:25 ubuntu sshd[1222]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:03:25 ubuntu sshd[1222]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112
+root@ubuntu:~# 
+root@ubuntu:~# TS="$(date -u +%Y%m%dT%H%M%SZ)"
+OUT="/root/exports/ssh-audit-$TS"
+mkdir -p "$OUT"
+
+cat >"$OUT/README.txt" <<'EOF'
+SSH audit bundle
+Contents:
+- effective sshd config
+S.zip" "/root/exports/ssh-audit-$T
+Command 'zip' not found, but can be installed with:
+apt install zip
+
+ZIP CREATED:
+ls: cannot access '/root/exports/ssh-audit-20260329T230737Z.zip': No such file or directory
+root@ubuntu:~# mkdir -p /root/exports/ssh-audit-20260329T230737Z.ziproot@ubuntu:~# TS="$(date -u +%Y%m%dT%H%M%SZ)"
+OUT="/root/exports/ssh-audit-$TS"
+mkdir -p "$OUT"
+
+cat >"$OUT/README.txt" <<'EOF'
+SSH audit bundle
+Contents:
+- effective sshd config
+S.zip" "/root/exports/ssh-audit-$T
+Command 'zip' not found, but can be installed with:
+apt install zip
+
+ZIP CREATED:
+ls: cannot access '/root/exports/ssh-audit-20260329T230832Z.zip': No such file or directory
+root@ubuntu:~# mkdir -p /root/exports
+
+TS="$(date -u +%Y%m%dT%H%M%SZ)"
+OUT="/root/exports/ssh-audit-$TS"
+mkdir -p "$OUT"
+
+cat >"$OUT/README.txt" <<'EOF'
+SSH audit bundle
+S.zip" "/root/exports/ssh-audit-$T
+  adding: root/exports/ssh-audit-20260329T230906Z/ (stored 0%)
+  adding: root/exports/ssh-audit-20260329T230906Z/08_sudoers_hits.txt (deflated 59%)
+  adding: root/exports/ssh-audit-20260329T230906Z/09_users_with_shells.txt (deflated 22%)
+  adding: root/exports/ssh-audit-20260329T230906Z/03_sshd_files.txt (deflated 57%)
+  adding: root/exports/ssh-audit-20260329T230906Z/02_sshd_raw_grep.txt (deflated 65%)
+  adding: root/exports/ssh-audit-20260329T230906Z/04_key_paths.txt (deflated 44%)
+  adding: root/exports/ssh-audit-20260329T230906Z/06_host_keys_listing.txt (deflated 71%)
+  adding: root/exports/ssh-audit-20260329T230906Z/01_sshd_effective.txt (deflated 71%)
+  adding: root/exports/ssh-audit-20260329T230906Z/07_cloud_ssh_overr...cal/bin/parse-ssh-audit        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+root@ubuntu:~# /usr/local/bin/parse-ssh-audit /root/exports/ssh-audit-YYYYMMDDTHHMMSSZ \
+  --output /root/exports/ssh-audit-report.txt
+-bash: /usr/local/bin/parse-ssh-audit: Permission denied
+root@ubuntu:~# chmod +x /usr/local/bin/parse-ssh-audit
+root@ubuntu:~# /usr/local/bin/parse-ssh-audit /root/exports/ssh-audit-YYYYMMDDTHHMMSSZ \
+  --output /root/exports/ssh-audit-report.txt
+root@ubuntu:~# ls -1d /root/exports/ssh-audit-* | tail -n 5
+/root/exports/ssh-audit-20260329T230737Z
+/root/exports/ssh-audit-20260329T230737Z.zip
+/root/exports/ssh-audit-20260329T230832Z
+/root/exports/ssh-audit-20260329T230906Z
+/root/exports/ssh-audit-20260329T230906Z.zip
+root@ubuntu:~# LATEST="$(find /root/exports -maxdepth 1 -type d -name 'ssh-audit-*' | sort | tail -n 1)"
+/usr/local/bin/parse-ssh-audit "$LATEST" --output /root/exports/ssh-audit-report.txt
+==============================================================================
+SSH AUDIT REPORT
+==============================================================================
+
+Bundle: /root/exports/ssh-audit-20260329T230906Z
+Overall risk: HIGH
+
+==============================================================================
+EXECUTIVE SUMMARY
+==============================================================================
+
+permitrootlogin: yes
+passwordauthentication: yes
+pubkeyauthentication: yes
+authorizedkeysfile: .ssh/authorized_keys .ssh/authorized_keys2
+forcecommand: none
+chrootdirectory: none
+Accepted password logins seen: 0
+Accepted publickey logins seen: 0
+Failed password events seen: 66
+Invalid-user events seen: 50
+Disconnect/reset noise seen: 41
+
+==============================================================================
+KEY FINDINGS
+==============================================================================
+
+[HIGH] Root password login is enabled over SSH.
+[MEDIUM] Public key authentication is enabled.
+[HIGH] Root authorized_keys content exists while pubkey authentication is enabled.
+[MEDIUM] AuthorizedKeysFile is active: .ssh/authorized_keys .ssh/authorized_keys2
+[LOW] Multiple PasswordAuthentication lines exist across ssh config files; overrides may conflict.
+[HIGH] A Termius-generated root SSH key is present in /root/.ssh/authorized_keys.
+[LOW] Cloud-init/cloud image SSH override files are present and may reintroduce SSH settings on rebuild or reprovision.
+[MEDIUM] A NOPASSWD sudo rule exists.
+[LOW] Cloud-init sudoers snippet exists.
+[HIGH] Heavy SSH password brute-force activity detected: 66 failed password events in the captured journal.
+[MEDIUM] Repeated invalid-user probing detected: 50 events.
+
+==============================================================================
+NOTES
+==============================================================================
+
+- SFTP subsystem configured: sftp /usr/lib/openssh/sftp-server
+- User key-related filesystem hits found: 2
+- Host keys present: 6 files (normal for SSH server).
+- Users with login shells: 2
+- Current live SSH sessions visible: 3
+
+==============================================================================
+SUPPORTING EVIDENCE
+==============================================================================
+
+Effective sshd config excerpt:
+  permitrootlogin yes
+  passwordauthentication yes
+  pubkeyauthentication yes
+  authorizedkeysfile .ssh/authorized_keys .ssh/authorized_keys2
+  kbdinteractiveauthentication no
+  forcecommand none
+  chrootdirectory none
+  subsystem sftp /usr/lib/openssh/sftp-server
+
+Raw config matches:
+/etc/ssh/sshd_config:42:#PermitRootLogin prohibit-password
+/etc/ssh/sshd_config:47:#PubkeyAuthentication yes
+/etc/ssh/sshd_config:50:#AuthorizedKeysFile       .ssh/authorized_keys .ssh/authorized_keys2
+/etc/ssh/sshd_config:66:#PasswordAuthentication yes
+/etc/ssh/sshd_config:71:KbdInteractiveAuthentication no
+/etc/ssh/sshd_config:87:# be allowed through the KbdInteractiveAuthentication and
+/etc/ssh/sshd_config:88:# PasswordAuthentication.  Depending on your PAM configuration,
+/etc/ssh/sshd_config:89:# PAM authentication via KbdInteractiveAuthentication may bypass
+/etc/ssh/sshd_config:90:# the setting of "PermitRootLogin prohibit-password".
+/etc/ssh/sshd_config:92:# PAM authentication, then enable this but set PasswordAuthentication
+/etc/ssh/sshd_config:93:# and KbdInteractiveAuthentication to 'no'.
+/etc/ssh/sshd_config:114:#ChrootDirectory none
+/etc/ssh/sshd_config:123:# override default of no subsystems
+/etc/ssh/sshd_config:124:Subsystesftp     /usr/lib/openssh/sftp-server
+/etc/ssh/sshd_config:127:#Match User anoncvs
+/etc/ssh/sshd_config:131:#      ForceCommand cvs server
+/etc/ssh/sshd_config:132:PermitRootLogin yes
+/etc/ssh/sshd_config.d/60-cloudimg-settings.conf:1:PasswordAuthentication no
+/etc/ssh/sshd_config.d/50-cloud-init.conf:1:PasswordAuthentication yes
+
+Key path hits:
+   262352      4 -rw-------   1 root     root          102 Mar 29 22:53 /root/.ssh/authorized_keys
+   262353      0 -rw-------   1 root     root            0 Mar 29 21:04 /root/key-removal-20260329T225200Z/authorized_keys
+
+Root .ssh excerpt:
+=== /root/.ssh ===
+total 12
+drwx------ 2 root root 4096 Mar 29 22:53 .
+drwx------ 7 root root 4096 Mar 29 23:07 ..
+-rw------- 1 root root  102 Mar 29 22:53 authorized_keys
+-rw-r--r-- 1 root root    0 Mar 29 22:52 known_hosts
+
+=== /root/.ssh/authorized_keys ===
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICnmMK68viuGP4UHhDkqZoYlOvA7Ygw+RfEcVz4xGTsE Generated By Termius
+
+Recent SSH journal tail:
+Mar 29 23:02:39 ubuntu sshd[1216]: Connection reset by authenticating user root 2.57.121.17 port 36022 [preauth]
+Mar 29 23:02:39 ubuntu sshd[1216]: PAM 4 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.121.17  user=root
+Mar 29 23:02:39 ubuntu sshd[1216]: PAM service(sshd) ignoring max retries; 5 > 3
+Mar 29 23:02:40 ubuntu sshd[1220]: Failed password for invalid user dev from 51.79.84.112 port 55552 ssh2
+Mar 29 23:02:41 ubuntu sshd[1220]: Connection closed by invalid user dev 51.79.84.112 port 55552 [preauth]
+Mar 29 23:03:25 ubuntu sshd[1222]: Invalid user lighthouse from 51.79.84.112 port 35842
+Mar 29 23:03:25 ubuntu sshd[1222]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:03:25 ubuntu sshd[1222]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112
+Mar 29 23:03:27 ubuntu sshd[1222]: Failed password for invalid user lighthouse from 51.79.84.112 port 35842 ssh2
+Mar 29 23:03:28 ubuntu sshd[1222]: Connection closed by invalid user lighthouse 51.79.84.112 port 35842 [preauth]
+Mar 29 23:03:52 ubuntu sshd[1243]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112  user=root
+Mar 29 23:03:54 ubuntu sshd[1243]: Failed password for root from 51.79.84.112 port 44104 ssh2
+Mar 29 23:03:54 ubuntu sshd[1243]: Connection closed by authenticating user root 51.79.84.112 port 44104 [preauth]
+Mar 29 23:04:01 ubuntu sshd[1245]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.122.199  user=root
+Mar 29 23:04:03 ubuntu sshd[1245]: Failed password for root from 2.57.122.199 port 17290 ssh2
+Mar 29 23:04:07 ubuntu sshd[1245]: Failed password for root from 2.57.122.199 port 17290 ssh2
+Mar 29 23:04:09 ubuntu sshd[1245]: Failed password for root from 2.57.122.199 port 17290 ssh2
+Mar 29 23:04:13 ubuntu sshd[1245]: Failed password for root from 2.57.122.199 port 17290 ssh2
+Mar 29 23:04:14 ubuntu sshd[1247]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112  user=root
+Mar 29 23:04:16 ubuntu sshd[1247]: Failed password for root from 51.79.84.112 port 46066 ssh2
+Mar 29 23:04:17 ubuntu sshd[1245]: Failed password for root from 2.57.122.199 port 17290 ssh2
+Mar 29 23:04:17 ubuntu sshd[1247]: Connection closed by authenticating user root 51.79.84.112 port 46066 [preauth]
+Mar 29 23:04:18 ubuntu sshd[1245]: Connection reset by authenticating user root 2.57.122.199 port 17290 [preauth]
+Mar 29 23:04:18 ubuntu sshd[1245]: PAM 4 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.122.199  user=root
+Mar 29 23:04:18 ubuntu sshd[1245]: PAM service(sshd) ignoring max retries; 5 > 3
+Mar 29 23:04:34 ubuntu sshd[1249]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=185.156.73.233  user=root
+Mar 29 23:04:35 ubuntu sshd[1249]: Failed password for root from 185.156.73.233 port 56260 ssh2
+Mar 29 23:04:36 ubuntu sshd[1249]: Connection closed by authenticating user root 185.156.73.233 port 56260 [preauth]
+Mar 29 23:04:42 ubuntu sshd[1251]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=20.203.42.204  user=root
+Mar 29 23:04:44 ubuntu sshd[1253]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112  user=root
+Mar 29 23:04:44 ubuntu sshd[1251]: Failed password for root from 20.203.42.204 port 47142 ssh2
+Mar 29 23:04:46 ubuntu sshd[1253]: Failed password for root from 51.79.84.112 port 55250 ssh2
+Mar 29 23:04:46 ubuntu sshd[1251]: Received disconnect from 20.203.42.204 port 47142:11: Bye Bye [preauth]
+Mar 29 23:04:46 ubuntu sshd[1251]: Disconnected from authenticating user root 20.203.42.204 port 47142 [preauth]
+Mar 29 23:04:47 ubuntu sshd[1253]: Connection closed by authenticating user root 51.79.84.112 port 55250 [preauth]
+Mar 29 23:04:54 ubuntu sshd[1255]: Invalid user User from 153.185.208.179 port 61243
+Mar 29 23:04:54 ubuntu sshd[1255]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:04:54 ubuntu sshd[1255]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=153.185.208.179
+Mar 29 23:04:56 ubuntu sshd[1255]: Failed password for invalid user User from 153.185.208.179 port 61243 ssh2
+Mar 29 23:04:57 ubuntu sshd[1255]: Connection closed by invalid user User 153.185.208.179 port 61243 [preauth]
+Mar 29 23:05:00 ubuntu sshd[1257]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112  user=root
+Mar 29 23:05:02 ubuntu sshd[1257]: Failed password for root from 51.79.84.112 port 48008 ssh2
+Mar 29 23:05:02 ubuntu sshd[1257]: Connection closed by authenticating user root 51.79.84.112 port 48008 [preauth]
+Mar 29 23:05:24 ubuntu sshd[1266]: Invalid user user from 51.79.84.112 port 46958
+Mar 29 23:05:24 ubuntu sshd[1266]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:05:24 ubuntu sshd[1266]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112
+Mar 29 23:05:26 ubuntu sshd[1266]: Failed password for invalid user user from 51.79.84.112 port 46958 ssh2
+Mar 29 23:05:28 ubuntu sshd[1266]: Connection closed by invalid user user 51.79.84.112 port 46958 [preauth]
+Mar 29 23:05:39 ubuntu sshd[1268]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.122.188  user=root
+Mar 29 23:05:41 ubuntu sshd[1271]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.213.96.6  user=root
+Mar 29 23:05:42 ubuntu sshd[1268]: Failed password for root from 2.57.122.188 port 6156 ssh2
+Mar 29 23:05:43 ubuntu sshd[1271]: Failed password for root from 211.213.96.6 port 59128 ssh2
+Mar 29 23:05:45 ubuntu sshd[1271]: Received disconnect from 211.213.96.6 port 59128:11: Bye Bye [preauth]
+Mar 29 23:05:45 ubuntu sshd[1271]: Disconnected from authenticating user root 211.213.96.6 port 59128 [preauth]
+Mar 29 23:05:45 ubuntu sshd[1268]: Failed password for root from 2.57.122.188 port 6156 ssh2
+Mar 29 23:05:47 ubuntu sshd[1273]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112  user=root
+Mar 29 23:05:48 ubuntu sshd[1268]: Failed password for root from 2.57.122.188 port 6156 ssh2
+Mar 29 23:05:48 ubuntu sshd[1273]: Failed password for root from 51.79.84.112 port 34720 ssh2
+Mar 29 23:05:49 ubuntu sshd[1273]: Connection closed by authenticating user root 51.79.84.112 port 34720 [preauth]
+Mar 29 23:05:51 ubuntu sshd[1268]: Failed password for root from 2.57.122.188 port 6156 ssh2
+Mar 29 23:05:54 ubuntu sshd[1268]: Failed password for root from 2.57.122.188 port 6156 ssh2
+Mar 29 23:05:56 ubuntu sshd[1268]: Connection reset by authenticating user root 2.57.122.188 port 6156 [preauth]
+Mar 29 23:05:56 ubuntu sshd[1268]: PAM 4 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.122.188  user=root
+Mar 29 23:05:56 ubuntu sshd[1268]: PAM service(sshd) ignoring max retries; 5 > 3
+Mar 29 23:06:18 ubuntu sshd[1275]: Invalid user svnuser from 51.79.84.112 port 53470
+Mar 29 23:06:18 ubuntu sshd[1275]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:06:18 ubuntu sshd[1275]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112
+Mar 29 23:06:20 ubuntu sshd[1275]: Failed password for invalid user svnuser from 51.79.84.112 port 53470 ssh2
+Mar 29 23:06:21 ubuntu sshd[1275]: Connection closed by invalid user svnuser 51.79.84.112 port 53470 [preauth]
+Mar 29 23:06:34 ubuntu sshd[1277]: Invalid user ftpuser from 51.79.84.112 port 35770
+Mar 29 23:06:34 ubuntu sshd[1277]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:06:34 ubuntu sshd[1277]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112
+Mar 29 23:06:36 ubuntu sshd[1277]: Failed password for invalid user ftpuser from 51.79.84.112 port 35770 ssh2
+Mar 29 23:06:38 ubuntu sshd[1277]: Connection closed by invalid user ftpuser 51.79.84.112 port 35770 [preauth]
+Mar 29 23:06:57 ubuntu sshd[1279]: Connection closed by 209.38.210.222 port 60760
+Mar 29 23:07:11 ubuntu sshd[1283]: Invalid user Unknown from 116.228.195.251 port 39857
+Mar 29 23:07:11 ubuntu sshd[1283]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:07:11 ubuntu sshd[1283]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=116.228.195.251
+Mar 29 23:07:14 ubuntu sshd[1283]: Failed password for invalid user Unknown from 116.228.195.251 port 39857 ssh2
+Mar 29 23:07:15 ubuntu sshd[1283]: Connection closed by invalid user Unknown 116.228.195.251 port 39857 [preauth]
+Mar 29 23:07:18 ubuntu sshd[1285]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.121.118  user=root
+Mar 29 23:07:20 ubuntu sshd[1285]: Failed password for root from 2.57.121.118 port 15002 ssh2
+Mar 29 23:07:22 ubuntu sshd[1287]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112  user=root
+Mar 29 23:07:24 ubuntu sshd[1287]: Failed password for root from 51.79.84.112 port 44918 ssh2
+Mar 29 23:07:24 ubuntu sshd[1285]: Failed password for root from 2.57.121.118 port 15002 ssh2
+Mar 29 23:07:26 ubuntu sshd[1287]: Connection closed by authenticating user root 51.79.84.112 port 44918 [preauth]
+Mar 29 23:07:28 ubuntu sshd[1285]: Failed password for root from 2.57.121.118 port 15002 ssh2
+Mar 29 23:07:31 ubuntu sshd[1285]: Failed password for root from 2.57.121.118 port 15002 ssh2
+Mar 29 23:07:35 ubuntu sshd[1285]: Failed password for root from 2.57.121.118 port 15002 ssh2
+Mar 29 23:07:37 ubuntu sshd[1285]: Connection reset by authenticating user root 2.57.121.118 port 15002 [preauth]
+Mar 29 23:07:37 ubuntu sshd[1285]: PAM 4 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.121.118  user=root
+Mar 29 23:07:37 ubuntu sshd[1285]: PAM service(sshd) ignoring max retries; 5 > 3
+Mar 29 23:07:48 ubuntu sshd[1319]: Invalid user esadmin from 51.79.84.112 port 38930
+Mar 29 23:07:48 ubuntu sshd[1319]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:07:48 ubuntu sshd[1319]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112
+Mar 29 23:07:50 ubuntu sshd[1319]: Failed password for invalid user esadmin from 51.79.84.112 port 38930 ssh2
+Mar 29 23:07:50 ubuntu sshd[1319]: Connection closed by invalid user esadmin 51.79.84.112 port 38930 [preauth]
+Mar 29 23:08:08 ubuntu sshd[1321]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112  user=root
+Mar 29 23:08:10 ubuntu sshd[1321]: Failed password for root from 51.79.84.112 port 46408 ssh2
+Mar 29 23:08:12 ubuntu sshd[1321]: Connection closed by authenticating user root 51.79.84.112 port 46408 [preauth]
+Mar 29 23:08:20 ubuntu sshd[1323]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=20.203.42.204  user=root
+Mar 29 23:08:22 ubuntu sshd[1323]: Failed password for root from 20.203.42.204 port 48934 ssh2
+Mar 29 23:08:24 ubuntu sshd[1323]: Received disconnect from 20.203.42.204 port 48934:11: Bye Bye [preauth]
+Mar 29 23:08:24 ubuntu sshd[1323]: Disconnected from authenticating user root 20.203.42.204 port 48934 [preauth]
+Mar 29 23:08:54 ubuntu sshd[1356]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=110.239.65.57  user=root
+Mar 29 23:08:55 ubuntu sshd[1358]: Invalid user deploy from 51.79.84.112 port 39546
+Mar 29 23:08:55 ubuntu sshd[1358]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:08:55 ubuntu sshd[1358]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=51.79.84.112
+Mar 29 23:08:56 ubuntu sshd[1356]: Failed password for root from 110.239.65.57 port 33896 ssh2
+Mar 29 23:08:57 ubuntu sshd[1358]: Failed password for invalid user deploy from 51.79.84.112 port 39546 ssh2
+Mar 29 23:08:57 ubuntu sshd[1356]: Received disconnect from 110.239.65.57 port 33896:11: Bye Bye [preauth]
+Mar 29 23:08:57 ubuntu sshd[1356]: Disconnected from authenticating user root 110.239.65.57 port 33896 [preauth]
+Mar 29 23:08:58 ubuntu sshd[1358]: Connection closed by invalid user deploy 51.79.84.112 port 39546 [preauth]
+Mar 29 23:08:59 ubuntu sshd[1360]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.227.254.170  user=root
+Mar 29 23:08:59 ubuntu sshd[1362]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=211.213.96.6  user=root
+Mar 29 23:09:01 ubuntu sshd[1360]: Failed password for root from 45.227.254.170 port 20534 ssh2
+Mar 29 23:09:01 ubuntu sshd[1362]: Failed password for root from 211.213.96.6 port 55592 ssh2
+Mar 29 23:09:03 ubuntu sshd[1362]: Received disconnect from 211.213.96.6 port 55592:11: Bye Bye [preauth]
+Mar 29 23:09:03 ubuntu sshd[1362]: Disconnected from authenticating user root 211.213.96.6 port 55592 [preauth]
+Mar 29 23:09:05 ubuntu sshd[1360]: Failed password for root from 45.227.254.170 port 20534 ssh2
+
+==============================================================================
+RECOMMENDED NEXT MOVES
+==============================================================================
+
+1. Disable public key authentication if the intended model is password-only root.
+2. Remove or archive /root/.ssh/authorized_keys if key logins are no longer wanted.
+3. Install and enable fail2ban or equivalent rate limiting immediately.
+4. Keep a second terminal open while testing password-only SSH changes to avoid lockout.
+5. Remove or neutralize cloud-init SSH override snippets if they conflict with your intended SSH policy.
+
+
+[report written to /root/exports/ssh-audit-report.txt]
+root@ubuntu:~# 
