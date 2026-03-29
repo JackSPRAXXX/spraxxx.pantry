@@ -1,0 +1,330 @@
+Welcome to Ubuntu 24.04.4 LTS (GNU/Linux 6.8.0-106-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Sun Mar 29 22:51:53 UTC 2026
+
+  System load:           0.54
+  Usage of /:            17.3% of 76.45GB
+  Memory usage:          46%
+  Swap usage:            0%
+  Processes:             174
+  Users logged in:       1
+  IPv4 address for ens6: 67.217.243.136
+  IPv6 address for ens6: 2607:f1c0:f045:5b00::
+  IPv6 address for ens6: 2607:f1c0:f045:5b00::1
+  IPv6 address for ens6: 2607:f1c0:f045:5b00::2
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+11 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+15 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+
+Last login: Sun Mar 29 22:50:36 2026 from 161.216.164.4
+
+TODAY'S CLEAN TRUTH
+- Core bridge modules now present on disk.
+- Core bridge modules compile.
+- common registered in /pios/registry/modules.pi
+- rules registered in /pios/registry/modules.pi
+- common wrapper present in /usr/local/bin/common
+- dropit wrapper present in /usr/local/bin/dropit
+- doctor current result: SYSTEM: CLEAN
+
+CORE BRIDGE SET
+
+root@angrywu:~# echo "=== FIND KEYS ==="
+find /root /home -maxdepth 4 \( -name authorized_keys -o -name '*.pub' -o -name 'id_*' \) -ls 2>/dev/null
+/root/.ssh/known_hosts.old        
+
+...cal/bin/parse-ssh-audit        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+root@angrywu:~# mkdir -p /root/exports
+
+TS="$(date -u +%Y%m%dT%H%M%SZ)"
+OUT="/root/exports/ssh-audit-$TS"
+mkdir -p "$OUT"
+
+cat >"$OUT/README.txt" <<'EOF'
+SSH audit bundle
+S.zip" "/root/exports/ssh-audit-$T
+  adding: root/exports/ssh-audit-20260329T233107Z/ (stored 0%)
+  adding: root/exports/ssh-audit-20260329T233107Z/08_sudoers_hits.txt (deflated 59%)
+  adding: root/exports/ssh-audit-20260329T233107Z/02_sshd_raw_grep.txt (deflated 59%)
+  adding: root/exports/ssh-audit-20260329T233107Z/11_recent_logins.txt (deflated 84%)
+  adding: root/exports/ssh-audit-20260329T233107Z/01_sshd_effective.txt (deflated 72%)
+  adding: root/exports/ssh-audit-20260329T233107Z/07_cloud_ssh_overrides.txt (deflated 70%)
+  adding: root/exports/ssh-audit-20260329T233107Z/README.txt (deflated 36%)
+  adding: root/exports/ssh-audit-20260329T233107Z/03_sshd_files.txt (deflated 53%)
+  adding: root/exports/ssh-audit-20260329T233107Z/12_ssh_journal.txt (deflated 90%)
+  adding: root/exports/ssh-audit-20260329T233107Z/10_current_sessions.txt (deflated 52%)
+  adding: root/exports/ssh-audit-20260329T233107Z/05_root_ssh_contents.txt (deflated 46%)
+  adding: root/exports/ssh-audit-20260329T233107Z/06_host_keys_listing.txt (deflated 69%)
+  adding: root/exports/ssh-audit-20260329T233107Z/09_users_with_shells.txt (deflated 28%)
+  adding: root/exports/ssh-audit-20260329T233107Z/04_key_paths.txt (stored 0%)
+
+ZIP CREATED:
+-rw-r--r-- 1 root root 10K Mar 29 23:31 /root/exports/ssh-audit-20260329T233107Z.zip
+root@angrywu:~# chmod +x /usr/local/bin/parse-ssh-audit
+root@angrywu:~# /usr/local/bin/parse-ssh-audit /root/exports/ssh-audit-YYYYMMDDTHHMMSSZ \
+  --output /root/exports/ssh-audit-report.txt
+root@angrywu:~# ls -1d /root/exports/ssh-audit-* | tail -n 5
+/root/exports/ssh-audit-20260329T233107Z
+/root/exports/ssh-audit-20260329T233107Z.zip
+root@angrywu:~# LATEST="$(find /root/exports -maxdepth 1 -type d -name 'ssh-audit-*' | sort | tail -n 1)"
+/usr/local/bin/parse-ssh-audit "$LATEST" --output /root/exports/ssh-audit-report.txt
+==============================================================================
+SSH AUDIT REPORT
+==============================================================================
+
+Bundle: /root/exports/ssh-audit-20260329T233107Z
+Overall risk: HIGH
+
+==============================================================================
+EXECUTIVE SUMMARY
+==============================================================================
+
+permitrootlogin: yes
+passwordauthentication: yes
+pubkeyauthentication: no
+authorizedkeysfile: none
+forcecommand: none
+chrootdirectory: none
+Accepted password logins seen: 0
+Accepted publickey logins seen: 0
+Failed password events seen: 82
+Invalid-user events seen: 12
+Disconnect/reset noise seen: 35
+
+==============================================================================
+KEY FINDINGS
+==============================================================================
+
+[HIGH] Root password login is enabled over SSH.
+[LOW] Multiple PasswordAuthentication lines exist across ssh config files; overrides may conflict.
+[LOW] Cloud-init/cloud image SSH override files are present and may reintroduce SSH settings on rebuild or reprovision.
+[MEDIUM] A NOPASSWD sudo rule exists.
+[LOW] Cloud-init sudoers snippet exists.
+[HIGH] Heavy SSH password brute-force activity detected: 82 failed password events in the captured journal.
+[MEDIUM] Repeated invalid-user probing detected: 12 events.
+
+==============================================================================
+NOTES
+==============================================================================
+
+- Host keys present: 6 files (normal for SSH server).
+- Users with login shells: 3
+- Current live SSH sessions visible: 2
+
+==============================================================================
+SUPPORTING EVIDENCE
+==============================================================================
+
+Effective sshd config excerpt:
+  permitrootlogin yes
+  passwordauthentication yes
+  pubkeyauthentication no
+  authorizedkeysfile none
+  kbdinteractiveauthentication no
+  forcecommand none
+  chrootdirectory none
+
+Raw config matches:
+/etc/ssh/sshd_config:1:PasswordAuthentication yes
+/etc/ssh/sshd_config:2:PubkeyAuthentication no
+/etc/ssh/sshd_config:3:AuthorizedKeysFile none
+/etc/ssh/sshd_config:4:ChallengeResponseAuthentication no
+/etc/ssh/sshd_config:6:PermitRootLogin yes
+/etc/ssh/sshd_config.d/60-cloudimg-settings.conf:1:PasswordAuthentication no
+/etc/ssh/sshd_config.d/50-cloud-init.conf:1:PasswordAuthentication yes
+
+Key path hits:
+  [none]
+
+Root .ssh excerpt:
+=== /root/.ssh ===
+total 20
+drwx------  2 root root  4096 Mar 29 23:00 .
+drwx------ 56 root root 12288 Mar 29 22:54 ..
+-rw-------  1 root root     0 Mar 29 22:59 known_hosts
+-rw-r--r--  1 root root   102 Mar 29 23:00 known_hosts.old
+
+=== /root/.ssh/authorized_keys ===
+
+Recent SSH journal tail:
+Mar 29 23:21:05 angrywu.spraxxx.com sshd[2633]: Failed password for root from 2.57.122.194 port 5388 ssh2
+Mar 29 23:21:08 angrywu.spraxxx.com sshd[2633]: Failed password for root from 2.57.122.194 port 5388 ssh2
+Mar 29 23:21:09 angrywu.spraxxx.com sshd[2633]: Connection reset by authenticating user root 2.57.122.194 port 5388 [preauth]
+Mar 29 23:21:09 angrywu.spraxxx.com sshd[2633]: PAM 4 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.122.194  user=root
+Mar 29 23:21:09 angrywu.spraxxx.com sshd[2633]: PAM service(sshd) ignoring max retries; 5 > 3
+Mar 29 23:22:34 angrywu.spraxxx.com sshd[2656]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.122.196  user=root
+Mar 29 23:22:36 angrywu.spraxxx.com sshd[2656]: Failed password for root from 2.57.122.196 port 34886 ssh2
+Mar 29 23:22:38 angrywu.spraxxx.com sshd[2656]: Failed password for root from 2.57.122.196 port 34886 ssh2
+Mar 29 23:22:42 angrywu.spraxxx.com sshd[2656]: Failed password for root from 2.57.122.196 port 34886 ssh2
+Mar 29 23:22:45 angrywu.spraxxx.com sshd[2656]: Failed password for root from 2.57.122.196 port 34886 ssh2
+Mar 29 23:22:46 angrywu.spraxxx.com sshd[2658]: Unable to negotiate with 2.57.121.25 port 52342: no matching host key type found. Their offer: ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,ssh-rsa,ssh-dss [preauth]
+Mar 29 23:22:48 angrywu.spraxxx.com sshd[2660]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=68.178.161.186  user=root
+Mar 29 23:22:48 angrywu.spraxxx.com sshd[2656]: Failed password for root from 2.57.122.196 port 34886 ssh2
+Mar 29 23:22:49 angrywu.spraxxx.com sshd[2656]: Connection reset by authenticating user root 2.57.122.196 port 34886 [preauth]
+Mar 29 23:22:49 angrywu.spraxxx.com sshd[2656]: PAM 4 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.122.196  user=root
+Mar 29 23:22:49 angrywu.spraxxx.com sshd[2656]: PAM service(sshd) ignoring max retries; 5 > 3
+Mar 29 23:22:49 angrywu.spraxxx.com sshd[2660]: Failed password for root from 68.178.161.186 port 50934 ssh2
+Mar 29 23:22:51 angrywu.spraxxx.com sshd[2660]: Connection closed by authenticating user root 68.178.161.186 port 50934 [preauth]
+Mar 29 23:22:51 angrywu.spraxxx.com sshd[2662]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=68.178.161.186  user=spraxxx
+Mar 29 23:22:53 angrywu.spraxxx.com sshd[2664]: Invalid user ubuntu from 68.178.161.186 port 54798
+Mar 29 23:22:53 angrywu.spraxxx.com sshd[2664]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:22:53 angrywu.spraxxx.com sshd[2664]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=68.178.161.186
+Mar 29 23:22:54 angrywu.spraxxx.com sshd[2662]: Failed password for spraxxx from 68.178.161.186 port 54790 ssh2
+Mar 29 23:22:54 angrywu.spraxxx.com sshd[2662]: Connection closed by authenticating user spraxxx 68.178.161.186 port 54790 [preauth]
+Mar 29 23:22:56 angrywu.spraxxx.com sshd[2664]: Failed password for invalid user ubuntu from 68.178.161.186 port 54798 ssh2
+Mar 29 23:22:56 angrywu.spraxxx.com sshd[2664]: Connection closed by invalid user ubuntu 68.178.161.186 port 54798 [preauth]
+Mar 29 23:24:12 angrywu.spraxxx.com sshd[2688]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.224.92.50  user=root
+Mar 29 23:24:14 angrywu.spraxxx.com sshd[2688]: Failed password for root from 91.224.92.50 port 37762 ssh2
+Mar 29 23:24:17 angrywu.spraxxx.com sshd[2688]: Failed password for root from 91.224.92.50 port 37762 ssh2
+Mar 29 23:24:20 angrywu.spraxxx.com sshd[2688]: Failed password for root from 91.224.92.50 port 37762 ssh2
+Mar 29 23:24:22 angrywu.spraxxx.com sshd[2688]: Failed password for root from 91.224.92.50 port 37762 ssh2
+Mar 29 23:24:25 angrywu.spraxxx.com sshd[2688]: Failed password for root from 91.224.92.50 port 37762 ssh2
+Mar 29 23:24:26 angrywu.spraxxx.com sshd[2688]: Connection reset by authenticating user root 91.224.92.50 port 37762 [preauth]
+Mar 29 23:24:26 angrywu.spraxxx.com sshd[2688]: PAM 4 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.224.92.50  user=root
+Mar 29 23:24:26 angrywu.spraxxx.com sshd[2688]: PAM service(sshd) ignoring max retries; 5 > 3
+Mar 29 23:25:26 angrywu.spraxxx.com sshd[2693]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=101.32.145.199  user=root
+Mar 29 23:25:28 angrywu.spraxxx.com sshd[2693]: Failed password for root from 101.32.145.199 port 39202 ssh2
+Mar 29 23:25:29 angrywu.spraxxx.com sshd[2693]: Received disconnect from 101.32.145.199 port 39202:11: Bye Bye [preauth]
+Mar 29 23:25:29 angrywu.spraxxx.com sshd[2693]: Disconnected from authenticating user root 101.32.145.199 port 39202 [preauth]
+Mar 29 23:25:29 angrywu.spraxxx.com sshd[2695]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=220.247.224.226  user=root
+Mar 29 23:25:31 angrywu.spraxxx.com sshd[2695]: Failed password for root from 220.247.224.226 port 8187 ssh2
+Mar 29 23:25:32 angrywu.spraxxx.com sshd[2695]: Received disconnect from 220.247.224.226 port 8187:11: Bye Bye [preauth]
+Mar 29 23:25:32 angrywu.spraxxx.com sshd[2695]: Disconnected from authenticating user root 220.247.224.226 port 8187 [preauth]
+Mar 29 23:25:48 angrywu.spraxxx.com sshd[2716]: Invalid user sshadmin from 185.156.73.233 port 28168
+Mar 29 23:25:48 angrywu.spraxxx.com sshd[2716]: pam_unix(sshd:auth): check pass; user unknown
+Mar 29 23:25:48 angrywu.spraxxx.com sshd[2716]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=185.156.73.233
+Mar 29 23:25:49 angrywu.spraxxx.com sshd[2718]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=103.48.192.48  user=root
+Mar 29 23:25:50 angrywu.spraxxx.com sshd[2716]: Failed password for invalid user sshadmin from 185.156.73.233 port 28168 ssh2
+Mar 29 23:25:50 angrywu.spraxxx.com sshd[2716]: Connection closed by invalid user sshadmin 185.156.73.233 port 28168 [preauth]
+Mar 29 23:25:50 angrywu.spraxxx.com sshd[2720]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.121.17  user=root
+Mar 29 23:25:51 angrywu.spraxxx.com sshd[2718]: Failed password for root from 103.48.192.48 port 41402 ssh2
+Mar 29 23:25:52 angrywu.spraxxx.com sshd[2718]: Received disconnect from 103.48.192.48 port 41402:11: Bye Bye [preauth]
+Mar 29 23:25:52 angrywu.spraxxx.com sshd[2718]: Disconnected from authenticating user root 103.48.192.48 port 41402 [preauth]
+Mar 29 23:25:53 angrywu.spraxxx.com sshd[2720]: Failed password for root from 2.57.121.17 port 11096 ssh2
+Mar 29 23:25:56 angrywu.spraxxx.com sshd[2720]: Failed password for root from 2.57.121.17 port 11096 ssh2
+Mar 29 23:25:58 angrywu.spraxxx.com sshd[2720]: Failed password for root from 2.57.121.17 port 11096 ssh2
+Mar 29 23:26:01 angrywu.spraxxx.com sshd[2720]: Failed password for root from 2.57.121.17 port 11096 ssh2
+Mar 29 23:26:04 angrywu.spraxxx.com sshd[2720]: Failed password for root from 2.57.121.17 port 11096 ssh2
+Mar 29 23:26:05 angrywu.spraxxx.com sshd[2720]: Connection reset by authenticating user root 2.57.121.17 port 11096 [preauth]
+Mar 29 23:26:05 angrywu.spraxxx.com sshd[2720]: PAM 4 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.121.17  user=root
+Mar 29 23:26:05 angrywu.spraxxx.com sshd[2720]: PAM service(sshd) ignoring max retries; 5 > 3
+Mar 29 23:27:32 angrywu.spraxxx.com sshd[2723]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.122.197  user=root
+Mar 29 23:27:34 angrywu.spraxxx.com sshd[2723]: Failed password for root from 2.57.122.197 port 2938 ssh2
+Mar 29 23:27:37 angrywu.spraxxx.com sshd[2725]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=172.173.117.246  user=root
+Mar 29 23:27:37 angrywu.spraxxx.com sshd[2723]: Failed password for root from 2.57.122.197 port 2938 ssh2
+Mar 29 23:27:38 angrywu.spraxxx.com sshd[2725]: Failed password for root from 172.173.117.246 port 48784 ssh2
+Mar 29 23:27:39 angrywu.spraxxx.com sshd[2725]: Received disconnect from 172.173.117.246 port 48784:11: Bye Bye [preauth]
+Mar 29 23:27:39 angrywu.spraxxx.com sshd[2725]: Disconnected from authenticating user root 172.173.117.246 port 48784 [preauth]
+Mar 29 23:27:39 angrywu.spraxxx.com sshd[2723]: Failed password for root from 2.57.122.197 port 2938 ssh2
+Mar 29 23:27:43 angrywu.spraxxx.com sshd[2723]: Failed password for root from 2.57.122.197 port 2938 ssh2
+Mar 29 23:27:45 angrywu.spraxxx.com sshd[2723]: Failed password for root from 2.57.122.197 port 2938 ssh2
+Mar 29 23:27:46 angrywu.spraxxx.com sshd[2723]: Connection reset by authenticating user root 2.57.122.197 port 2938 [preauth]
+Mar 29 23:27:46 angrywu.spraxxx.com sshd[2723]: PAM 4 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.122.197  user=root
+Mar 29 23:27:46 angrywu.spraxxx.com sshd[2723]: PAM service(sshd) ignoring max retries; 5 > 3
+Mar 29 23:27:48 angrywu.spraxxx.com sshd[2747]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=107.150.119.24  user=root
+Mar 29 23:27:49 angrywu.spraxxx.com sshd[2747]: Failed password for root from 107.150.119.24 port 62346 ssh2
+Mar 29 23:27:50 angrywu.spraxxx.com sshd[2747]: Received disconnect from 107.150.119.24 port 62346:11: Bye Bye [preauth]
+Mar 29 23:27:50 angrywu.spraxxx.com sshd[2747]: Disconnected from authenticating user root 107.150.119.24 port 62346 [preauth]
+Mar 29 23:29:00 angrywu.spraxxx.com sshd[2794]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=220.247.224.226  user=root
+Mar 29 23:29:01 angrywu.spraxxx.com sshd[2794]: Failed password for root from 220.247.224.226 port 51247 ssh2
+Mar 29 23:29:03 angrywu.spraxxx.com sshd[2794]: Received disconnect from 220.247.224.226 port 51247:11: Bye Bye [preauth]
+Mar 29 23:29:03 angrywu.spraxxx.com sshd[2794]: Disconnected from authenticating user root 220.247.224.226 port 51247 [preauth]
+Mar 29 23:29:11 angrywu.spraxxx.com sshd[2796]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.148.10.151  user=root
+Mar 29 23:29:13 angrywu.spraxxx.com sshd[2796]: Failed password for root from 45.148.10.151 port 48868 ssh2
+Mar 29 23:29:16 angrywu.spraxxx.com sshd[2796]: Failed password for root from 45.148.10.151 port 48868 ssh2
+Mar 29 23:29:20 angrywu.spraxxx.com sshd[2796]: Failed password for root from 45.148.10.151 port 48868 ssh2
+Mar 29 23:29:24 angrywu.spraxxx.com sshd[2796]: Failed password for root from 45.148.10.151 port 48868 ssh2
+Mar 29 23:29:26 angrywu.spraxxx.com sshd[2796]: Failed password for root from 45.148.10.151 port 48868 ssh2
+Mar 29 23:29:28 angrywu.spraxxx.com sshd[2796]: Connection reset by authenticating user root 45.148.10.151 port 48868 [preauth]
+Mar 29 23:29:28 angrywu.spraxxx.com sshd[2796]: PAM 4 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=45.148.10.151  user=root
+Mar 29 23:29:28 angrywu.spraxxx.com sshd[2796]: PAM service(sshd) ignoring max retries; 5 > 3
+Mar 29 23:29:57 angrywu.spraxxx.com sshd[2798]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=103.48.192.48  user=root
+Mar 29 23:30:00 angrywu.spraxxx.com sshd[2798]: Failed password for root from 103.48.192.48 port 21342 ssh2
+Mar 29 23:30:00 angrywu.spraxxx.com sshd[2798]: Received disconnect from 103.48.192.48 port 21342:11: Bye Bye [preauth]
+Mar 29 23:30:00 angrywu.spraxxx.com sshd[2798]: Disconnected from authenticating user root 103.48.192.48 port 21342 [preauth]
+Mar 29 23:30:09 angrywu.spraxxx.com sshd[2821]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=101.32.145.199  user=root
+Mar 29 23:30:11 angrywu.spraxxx.com sshd[2821]: Failed password for root from 101.32.145.199 port 50980 ssh2
+Mar 29 23:30:12 angrywu.spraxxx.com sshd[2821]: Received disconnect from 101.32.145.199 port 50980:11: Bye Bye [preauth]
+Mar 29 23:30:12 angrywu.spraxxx.com sshd[2821]: Disconnected from authenticating user root 101.32.145.199 port 50980 [preauth]
+Mar 29 23:30:34 angrywu.spraxxx.com sshd[2824]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=172.173.117.246  user=root
+Mar 29 23:30:35 angrywu.spraxxx.com sshd[2824]: Failed password for root from 172.173.117.246 port 34314 ssh2
+Mar 29 23:30:36 angrywu.spraxxx.com sshd[2824]: Received disconnect from 172.173.117.246 port 34314:11: Bye Bye [preauth]
+Mar 29 23:30:36 angrywu.spraxxx.com sshd[2824]: Disconnected from authenticating user root 172.173.117.246 port 34314 [preauth]
+Mar 29 23:30:49 angrywu.spraxxx.com sshd[2826]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.27.63.102  user=root
+Mar 29 23:30:49 angrywu.spraxxx.com sshd[2828]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.122.192  user=root
+Mar 29 23:30:50 angrywu.spraxxx.com sshd[2826]: Failed password for root from 2.27.63.102 port 51798 ssh2
+Mar 29 23:30:51 angrywu.spraxxx.com sshd[2828]: Failed password for root from 2.57.122.192 port 62200 ssh2
+Mar 29 23:30:52 angrywu.spraxxx.com sshd[2826]: Received disconnect from 2.27.63.102 port 51798:11: Bye Bye [preauth]
+Mar 29 23:30:52 angrywu.spraxxx.com sshd[2826]: Disconnected from authenticating user root 2.27.63.102 port 51798 [preauth]
+Mar 29 23:30:54 angrywu.spraxxx.com sshd[2828]: Failed password for root from 2.57.122.192 port 62200 ssh2
+Mar 29 23:30:57 angrywu.spraxxx.com sshd[2828]: Failed password for root from 2.57.122.192 port 62200 ssh2
+Mar 29 23:30:58 angrywu.spraxxx.com sshd[2831]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=107.150.119.24  user=root
+Mar 29 23:30:59 angrywu.spraxxx.com sshd[2831]: Failed password for root from 107.150.119.24 port 64802 ssh2
+Mar 29 23:31:00 angrywu.spraxxx.com sshd[2828]: Failed password for root from 2.57.122.192 port 62200 ssh2
+Mar 29 23:31:00 angrywu.spraxxx.com sshd[2831]: Received disconnect from 107.150.119.24 port 64802:11: Bye Bye [preauth]
+Mar 29 23:31:00 angrywu.spraxxx.com sshd[2831]: Disconnected from authenticating user root 107.150.119.24 port 64802 [preauth]
+Mar 29 23:31:02 angrywu.spraxxx.com sshd[2828]: Failed password for root from 2.57.122.192 port 62200 ssh2
+Mar 29 23:31:04 angrywu.spraxxx.com sshd[2828]: Connection reset by authenticating user root 2.57.122.192 port 62200 [preauth]
+Mar 29 23:31:04 angrywu.spraxxx.com sshd[2828]: PAM 4 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=2.57.122.192  user=root
+Mar 29 23:31:04 angrywu.spraxxx.com sshd[2828]: PAM service(sshd) ignoring max retries; 5 > 3
+
+==============================================================================
+RECOMMENDED NEXT MOVES
+==============================================================================
+
+2. Remove or archive /root/.ssh/authorized_keys if key logins are no longer wanted.
+3. Install and enable fail2ban or equivalent rate limiting immediately.
+4. Keep a second terminal open while testing password-only SSH changes to avoid lockout.
+5. Remove or neutralize cloud-init SSH override snippets if they conflict with your intended SSH policy.
+
+
+[report written to /root/exports/ssh-audit-report.txt]
+root@angrywu:~# TS="$(date -u +%Y%m%dT%H%M%SZ)"
+mkdir -p /root/ssh-cleanup-$TS
+
+cp -a /etc/ssh/sshd_config /root/ssh-cleanup-$TS/sshd_config.bak
+cp -a /etc/ssh/sshd_config.d /root/ssh-cleanup-$TS/sshd_config.d.bak 2>/dev/null || true
+cp -a /root/.ssh /root/ssh-cleanup-$TS/root_dot_ssh.bak 2>/dev/null hentication|authorizedkeysfile'aut
+=== EFFECTIVE SSHD ===
+permitrootlogin yes
+pubkeyauthentication no
+passwordauthentication yes
+authorizedkeysfile none
+root@angrywu:~# 
